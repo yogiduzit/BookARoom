@@ -11,11 +11,12 @@
 
     <ImageView
         android:id="@+id/recreationActivities"
-        android:layout_width="353dp"
+        android:layout_width="match_parent"
         android:layout_height="394dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mix"
         android:contentDescription="@string/recreationActs" />
@@ -29,8 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bcitlogo"
-        android:contentDescription="@string/logo_of_bcit" />
-
+        android:contentDescription="@string/bcitlogo" />
 
     <TextView
         android:id="@+id/appName"
@@ -45,5 +45,15 @@
         app:layout_constraintStart_toStartOf="@+id/bcitLogo"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/mainBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:onClick="openURL"
+        android:text="@string/login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recreationActivities"
+        android:layout_marginTop="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
