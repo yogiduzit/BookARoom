@@ -2,4 +2,5 @@
     <string name="app_name">BookARoom</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
+    <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
 </resources>
