@@ -17,8 +17,7 @@
         android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mix"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/mix" />
 
     <ImageView
         android:id="@+id/imageView"
