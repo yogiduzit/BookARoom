@@ -18,9 +18,12 @@ public class ViewBookings extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bookings);
-        addItemsToSpinner(R.id.recreational_spinner, getResources().getStringArray(R.array.recreational));
-        addItemsToSpinner(R.id.library_spinner, getResources().getStringArray(R.array.library));
-        addItemsToSpinner(R.id.downtown_spinner, getResources().getStringArray(R.array.downtown));
+        String[] recreationalArr = getResources().getStringArray(R.array.recreational);
+        String[] libraryArr = getResources().getStringArray(R.array.library);
+        String[] downtownArr = getResources().getStringArray(R.array.downtown);
+        addItemsToSpinner(R.id.recreational_spinner, recreationalArr);
+        addItemsToSpinner(R.id.library_spinner, libraryArr);
+        addItemsToSpinner(R.id.downtown_spinner, downtownArr);
     }
     public void addItemsToSpinner(Integer id, String[] items){
         spinner = findViewById(id);
