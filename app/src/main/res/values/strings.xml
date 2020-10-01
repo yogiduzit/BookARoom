@@ -36,7 +36,7 @@
         <item>667</item>
         <item>668</item>
     </string-array>
-    <string name="bcitlogo">Logo of BCIT</string>
+    <string name="BCIT_logo">Logo of BCIT</string>
     <string name="recreationActs">Recreation Activities</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
