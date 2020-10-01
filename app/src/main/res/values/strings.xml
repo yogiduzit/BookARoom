@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BookARoom</string>
+    <string name="main_menu_name">Main Menu</string>
+    <string name="basketball">Basketball</string>
+    <string name="badminton">Badminton</string>
+    <string name="gym">Gym</string>
 </resources>
