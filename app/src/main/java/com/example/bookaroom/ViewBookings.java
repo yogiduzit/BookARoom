@@ -8,12 +8,16 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class ViewBookings extends MainActivity {
     private Spinner recreationalDropdown;
     private Spinner libraryDropdown;
     private Spinner downtownDropdown;
+    private String[] recreationalArr;
+    private String[] libraryArr;
+    private String[] downtownArr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +31,10 @@ public class ViewBookings extends MainActivity {
     public void addItemsToRecreationalSpinner(){
         recreationalDropdown = (Spinner)findViewById(R.id.recreational_spinner);
         List<String> list = new ArrayList<String>();
-        list.add(getString(R.string.basketball));
-        list.add(getString(R.string.badminton));
-        list.add(getString(R.string.gym));
+        recreationalArr = getResources().getStringArray(R.array.recreational);
+        for(int i = 0; i < recreationalArr.length;i++){
+            list.add(recreationalArr[i]);
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -39,20 +44,10 @@ public class ViewBookings extends MainActivity {
     public void addItemsToLibrarySpinner(){
         libraryDropdown = (Spinner)findViewById(R.id.library_spinner);
         List<String> list = new ArrayList<String>();
-        list.add("130D");
-        list.add("130E");
-        list.add("130F");
-        list.add("130G");
-        list.add("130H");
-        list.add("130I");
-        list.add("137");
-        list.add("138");
-        list.add("139");
-        list.add("140");
-        list.add("141");
-        list.add("250A");
-        list.add("250B");
-        list.add("250C");
+        libraryArr = getResources().getStringArray(R.array.library);
+        for (int i = 0; i < libraryArr.length;i++){
+            list.add(libraryArr[i]);
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -62,14 +57,10 @@ public class ViewBookings extends MainActivity {
     public void addItemsToDowntownSpinner(){
         downtownDropdown = (Spinner)findViewById(R.id.downtown_spinner);
         List<String> list = new ArrayList<String>();
-        list.add("576");
-        list.add("582");
-        list.add("583");
-        list.add("586");
-        list.add("587");
-        list.add("666");
-        list.add("667");
-        list.add("668");
+        downtownArr = getResources().getStringArray(R.array.downtown);
+        for(int i = 0; i < downtownArr.length; i++){
+            list.add(downtownArr[i]);
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

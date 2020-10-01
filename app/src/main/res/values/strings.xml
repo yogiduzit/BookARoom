@@ -4,4 +4,36 @@
     <string name="basketball">Basketball</string>
     <string name="badminton">Badminton</string>
     <string name="gym">Gym</string>
+    <string-array name="recreational">
+        <item>Basketball</item>
+        <item>Badminton</item>
+        <item>Gym</item>
+    </string-array>
+    <string-array name="library">
+        <item>130D</item>
+        <item>130E</item>
+        <item>130F</item>
+        <item>130G</item>
+        <item>130H</item>
+        <item>130I</item>
+        <item>137</item>
+        <item>138</item>
+        <item>139</item>
+        <item>140</item>
+        <item>141</item>
+        <item>250A</item>
+        <item>250B</item>
+        <item>250C</item>
+    </string-array>
+
+    <string-array name="downtown">
+        <item>576</item>
+        <item>582</item>
+        <item>583</item>
+        <item>586</item>
+        <item>587</item>
+        <item>666</item>
+        <item>667</item>
+        <item>668</item>
+    </string-array>
 </resources>
