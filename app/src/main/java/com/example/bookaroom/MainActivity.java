@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Authentication status of the user
      */
-    private boolean loggedIn = true;
+    private boolean loggedIn = false;
 
     /**
      * Stores the key value pairs containing the button id
@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             Intent viewBookings = new Intent(this, ViewBookings.class);
             startActivity(viewBookings);
         }
-
     }
 
     /**
