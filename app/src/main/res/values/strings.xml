@@ -37,8 +37,20 @@
         <item>668</item>
     </string-array>
     <string name="BCIT_logo">Logo of BCIT</string>
+    <string name="BCIT_navigation_bar">Navigation bar of BCIT</string>
+    <string name="booking_details">Booking details</string>
     <string name="recreationActs">Recreation Activities</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
+    <string name="room_nu_service">Room No / Service:</string>
+    <string name="terms_and_conditions">I have read the terms and conditions</string>
+    <string name="book">Book</string>
+    <string name="my_bookings">My bookings</string>
+    <string name="back">Back</string>
+    <string name="start">Start:</string>
+    <string name="end">End:</string>
+    <string name="date">Date:</string>
+    <string name="name">Name</string>
+
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
 </resources>
