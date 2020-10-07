@@ -13,9 +13,7 @@ public class BookingForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_booking_form);
-
     }
 
     public void onBookingConfirmed(View view) {
