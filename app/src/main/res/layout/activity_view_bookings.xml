@@ -17,7 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown"
+        android:text="Filled exposed dropdown1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown"
+        android:text="Filled exposed dropdown2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown"
+        android:text="Filled exposed dropdown3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -22,6 +22,7 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
+
         addItemsToDropdown(R.id.filled_exposed_dropdown, recreationalArr);
         addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr);
         addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr);
