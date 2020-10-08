@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 
 public class ViewBookings extends MainActivity {
-    private Spinner spinner;
+    private AutoCompleteTextView autoCompleteTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,27 +22,19 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
-        addItemsToSpinner(R.id.recreational_spinner, recreationalArr);
-        addItemsToSpinner(R.id.library_spinner, libraryArr);
-        addItemsToSpinner(R.id.downtown_spinner, downtownArr);
+        addItemsToDropdown(R.id.filled_exposed_dropdown, recreationalArr);
+        addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr);
+        addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr);
     }
-    public void addItemsToSpinner(Integer id, String[] items){
-        spinner = findViewById(id);
+    public void addItemsToDropdown(Integer id, String[] items){
+        autoCompleteTextView = findViewById(id);
         List<String> list = new ArrayList<String>();
         for(int i = 0; i < items.length;i++){
             list.add(items[i]);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
-
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        parent.getItemAtPosition(position);
-    }
-
-    public void onNothingSelected(AdapterView<?> parent){
-
+                R.layout.dropdown_menu, list);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setText(" ", false);
     }
 }
