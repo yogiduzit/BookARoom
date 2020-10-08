@@ -6,4 +6,9 @@
     <color name="BCIT">#003E6B</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+
+    <!-- Table colors -->
+    <color name="cell_background_color">#ffffff</color>
+    <color name="header_line_color">#0a0a0a</color>
+    <color name="table_view_default_text_color">#0a0a0a</color>
 </resources>
