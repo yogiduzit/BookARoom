@@ -1,5 +1,6 @@
 package com.example.bookaroom.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,5 +39,10 @@ public class ViewBookings extends MainActivity {
                 R.layout.dropdown_menu, list);
         autoCompleteTextView.setAdapter(adapter);
         autoCompleteTextView.setText(" ", false);
+    }
+
+    public void onRoomClicked(View view) {
+        Intent chooseBookings = new Intent(this, ChooseBooking.class);
+        startActivity(chooseBookings);
     }
 }
