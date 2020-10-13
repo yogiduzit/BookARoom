@@ -55,6 +55,19 @@
     <string name="terms_and_conditions">I have read the terms and conditions</string>
     <string name="booking_confirmed">Your booking has been confirmed</string>
 
+    <!-- My Bookings -->
+    <string name="menu">Main Menu</string>
+    <string name="sample_room">Library</string>
+    <string name="sample_room_number">130B</string>
+    <string name="sample_start_time">12:30</string>
+    <string name="sample_end_time">13:30</string>
+    <string name="dash">-</string>
+    <string name="sample_name">XYZ</string>
+    <string name="continue_button">Continue</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="description">A description</string>
+
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
 
     <!-- Choose Bookings -->
