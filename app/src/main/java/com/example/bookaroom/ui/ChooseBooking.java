@@ -15,7 +15,6 @@ public class ChooseBooking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_booking);
-        getSupportActionBar().hide();
 
         TableView bookingsTableView = findViewById(R.id.bookings_table_view);
         initTableView(bookingsTableView);
