@@ -18,6 +18,8 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.example.bookaroom.R;
 
+import com.example.bookaroom.R;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String BCIT_URL = "https://id.bcit.ca";
     public static final String GO_FORWARD_URL = "https://www.bcit.ca/covid-19/return-to-operations/";
+
     SignInButton signin;
     Button mainButton;
     int RC_SIGN_IN = 0;

@@ -8,7 +8,8 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>
-    <color name="transparent">#00F0F8FF</color>
+    <color name="transparent">#00F0F8FF</color>\
+
     <!-- Table colors -->
     <color name="cell_background_color">#ffffff</color>
     <color name="table_view_default_text_color">#0a0a0a</color>

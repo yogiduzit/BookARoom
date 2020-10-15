@@ -1,59 +1,42 @@
 package com.example.bookaroom.ui;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import com.example.bookaroom.MyBookingFragment;
-import com.example.bookaroom.MyProfileFragment;
 import com.example.bookaroom.R;
-import com.example.bookaroom.ViewBookingFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ViewBookings extends MainActivity {
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bookings);
-
-        SectionsPageAdapter pageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(pageAdapter);
+    }
+    public void addItemsToSpinner(Integer id, String[] items){
+        spinner = findViewById(id);
+        List<String> list = new ArrayList<String>();
+        for(int i = 0; i < items.length;i++){
+            list.add(items[i]);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
-    public class SectionsPageAdapter extends FragmentPagerAdapter{
-        public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+        parent.getItemAtPosition(position);
+    }
 
-        @Override
-        public int getCount(){return 3;}
+    public void onNothingSelected(AdapterView<?> parent){
 
-        @Override
-        public Fragment getItem(int position){
-            switch (position){
-                case 0:
-                    return new ViewBookingFragment();
-                case 1:
-                    return new MyBookingFragment();
-                case 2:
-                    return new MyProfileFragment();
-            }
-            return null;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position){
-            switch (position){
-                case 0:
-                    return getResources().getText(R.string.view_bookings);
-                case 1:
-                    return getResources().getText(R.string.my_bookings);
-                case 2:
-                    return getResources().getText(R.string.my_profile);
-            }
-            return null;
-        }
     }
 }
