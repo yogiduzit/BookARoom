@@ -37,6 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_gravity="bottom"
-            android:background="@color/header_line_color" />
+            android:background="@color/BCIT" />
     </FrameLayout>
 </LinearLayout>

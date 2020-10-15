@@ -57,4 +57,5 @@
     <string name="room_id">Room ID</string>
     <string name="intervals">Intervals</string>
     <string name="book_button">Book</string>
+    <string name="choose_bookings">Choose Bookings</string>
 </resources>

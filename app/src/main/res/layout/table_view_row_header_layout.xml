@@ -30,5 +30,5 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="0dp"
-        android:background="@color/header_line_color" />
+        android:background="@color/BCIT" />
 </RelativeLayout>
