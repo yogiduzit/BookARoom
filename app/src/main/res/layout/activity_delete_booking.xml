@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/navigation_bar"
-        android:layout_width="361dp"
-        android:layout_height="61dp"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         android:scaleType="fitXY"
         android:contentDescription="@string/BCIT_navigation_bar"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/booking_detail"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="63dp"
         android:scaleType="fitXY"
         android:text="@string/menu"
@@ -30,50 +30,55 @@
 
     <TextView
         android:id="@+id/view_booking_nav"
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_bookings"
         android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/my_booking_nav"
         app:layout_constraintStart_toStartOf="@id/navigation_bar"
         app:layout_constraintTop_toBottomOf="@id/booking_detail" />
 
     <TextView
         android:id="@+id/my_booking_nav"
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/my_bookings"
         android:gravity="center"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/view_booking_nav"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/booking_detail" />
 
     <TextView
         android:id="@+id/blank1"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="10dp"
         android:background="@color/grey"
         android:scaleType="fitXY"
         android:text=""
-        app:layout_constraintStart_toStartOf="@id/view_booking_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/blank2"
         app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />
 
     <TextView
         android:id="@+id/blank2"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="10dp"
         android:background="@color/BCIT"
         android:scaleType="fitXY"
         android:text=""
         app:layout_constraintStart_toEndOf="@id/blank1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />
+
 
     <ImageView
         android:id="@+id/upper_edge"
         android:layout_width="316dp"
         android:layout_height="26dp"
         android:layout_marginTop="20sp"
-        android:layout_marginStart="21sp"
-        app:layout_constraintStart_toStartOf="@id/view_booking_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/blank2"
         app:srcCompat="@drawable/upper_edge"
         android:contentDescription="@string/description" />
@@ -191,9 +196,10 @@
         android:id="@+id/lower_edge"
         android:layout_width="295dp"
         android:layout_height="28dp"
-        android:layout_marginStart="32.2sp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@id/blank1"
+        android:layout_marginStart="1sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider1"
         app:srcCompat="@drawable/lower_edge"
         android:contentDescription="@string/description" />
