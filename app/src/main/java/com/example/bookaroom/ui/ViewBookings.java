@@ -1,12 +1,10 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui;
 
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
+
+import com.example.bookaroom.R;
 
 import java.util.ArrayList;
 import java.util.List;

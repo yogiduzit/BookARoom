@@ -8,8 +8,7 @@
     android:focusableInTouchMode="true"
     android:padding="16dp"
     android:theme="@style/Theme.MaterialComponents"
-    tools:context=".ViewBookings">
-
+    tools:context=".ui.ViewBookings">
     <TextView
         android:id="@+id/mainMenuName"
         android:layout_width="0dp"
@@ -31,7 +30,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/mainMenuName" />
@@ -63,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown2"
         app:layout_constraintBottom_toTopOf="@+id/filled_exposed_dropdown_container2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -96,7 +93,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Filled exposed dropdown3"
         app:layout_constraintBottom_toTopOf="@+id/filled_exposed_dropdown_container3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

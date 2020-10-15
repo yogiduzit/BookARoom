@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.bookaroom.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+
 
         setContentView(R.layout.activity_main);
         setupLinks();

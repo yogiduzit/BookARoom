@@ -2,11 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BCIT"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
+
+    <include
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/navbar_layout"
+        />
 
     <ImageView
         android:id="@+id/recreationActivities"
@@ -17,31 +24,8 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bcitLogo"
+        app:layout_constraintTop_toBottomOf="@id/navigation_bar"
         app:srcCompat="@drawable/mix" />
-
-    <ImageView
-        android:id="@+id/bcitLogo"
-        android:layout_width="89dp"
-        android:layout_height="67dp"
-        android:contentDescription="@string/BCIT_logo"
-        android:scaleType="fitStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bcitlogo" />
-
-    <TextView
-        android:id="@+id/appName"
-        android:layout_width="239dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="end|center_vertical"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="23sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/mainBtn"
@@ -50,6 +34,7 @@
         android:onClick="onMainBtnClick"
         android:text="@string/login"
         android:textSize="20sp"
+        android:background="@drawable/rounded_corners_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recreationActivities"
