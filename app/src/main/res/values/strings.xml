@@ -51,6 +51,11 @@
     <string name="end">End:</string>
     <string name="date">Date:</string>
     <string name="name">Name</string>
-
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
+
+    <!-- Choose Bookings -->
+    <string name="room_id">Room ID</string>
+    <string name="intervals">Intervals</string>
+    <string name="book_button">Book</string>
+    <string name="choose_bookings">Choose Bookings</string>
 </resources>
