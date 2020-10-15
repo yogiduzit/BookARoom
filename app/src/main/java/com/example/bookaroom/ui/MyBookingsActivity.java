@@ -20,8 +20,4 @@ public class MyBookingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DeleteBookingActivity.class);
         startActivity(intent);
     }
-
-
-
-
 }
