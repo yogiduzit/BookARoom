@@ -83,12 +83,12 @@
             android:text="@string/book"
             android:textSize="@dimen/text_size"
             android:textColor="@color/white"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/rounded_corners_blue"
             app:layout_constraintTop_toBottomOf="@id/bookings_table_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            android:onClick="onBookingSelected"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
