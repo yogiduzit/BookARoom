@@ -1,10 +1,9 @@
 package com.example.bookaroom.ui.tableView.model;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 public class ColumnHeader extends Cell {
-
-    public ColumnHeader(@Nullable String oData) {
+    public ColumnHeader(@NonNull String oData) {
         super(oData);
     }
 }

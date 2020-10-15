@@ -78,7 +78,8 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         if (viewHolder.cellTextView == null) {
             return;
         }
-        viewHolder.cellTextView.setText(cell.getData() != null ? "not null" : "null");
+        String cellContent = cell.getData();
+        viewHolder.cellTextView.setText(cellContent != null ? cellContent : "null");
 
         // If your TableView should have auto resize for cells & columns.
         // Then you should consider the below lines. Otherwise, you can ignore them.
@@ -151,7 +152,8 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         if (columnHeaderViewHolder.columnHeaderTextView == null) {
             return;
         }
-        columnHeaderViewHolder.columnHeaderTextView.setText(columnHeader.getData() != null ? "not null" : "null");
+        String colContent = columnHeader.getData();
+        columnHeaderViewHolder.columnHeaderTextView.setText(colContent != null ? colContent : "null");
 
         // If your TableView should have auto resize for cells & columns.
         // Then you should consider the below lines. Otherwise, you can ignore them.
@@ -172,7 +174,7 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
 
         public RowHeaderViewHolder(View itemView) {
             super(itemView);
-            rowHeaderTextView = itemView.findViewById(R.id.cell_data);
+            rowHeaderTextView = itemView.findViewById(R.id.row_header_textView);
         }
     }
 
@@ -222,7 +224,8 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         if (rowHeaderViewHolder.rowHeaderTextView == null) {
             return;
         }
-        rowHeaderViewHolder.rowHeaderTextView.setText(rowHeader.getData() != null ? "not null" : "null");
+        String rowContent = rowHeader.getData();
+        rowHeaderViewHolder.rowHeaderTextView.setText(rowContent != null ? rowContent : "null");
     }
 
     @Override

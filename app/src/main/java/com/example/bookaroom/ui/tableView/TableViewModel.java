@@ -1,5 +1,7 @@
 package com.example.bookaroom.ui.tableView;
 
+import com.example.bookaroom.AdminPanel;
+import com.example.bookaroom.helpers.DateHelper;
 import com.example.bookaroom.ui.tableView.model.Cell;
 import com.example.bookaroom.ui.tableView.model.ColumnHeader;
 import com.example.bookaroom.ui.tableView.model.RowHeader;
@@ -13,24 +15,21 @@ public class TableViewModel {
     private List<ColumnHeader> columnHeaderList;
     private List<List<Cell>> cellList;
 
+    private List<String> bookingIntervals;
+
     public TableViewModel() {
-        rowHeaderList = this.createRowHeaderList(10);
-        columnHeaderList = this.createColumnHeaderList();
+        bookingIntervals =  DateHelper.getBookingIntervals(AdminPanel.DAY_START_TIME, AdminPanel.DAY_END_TIME);
+        rowHeaderList = this.createRowHeaderList();
+        columnHeaderList = this.createColumnHeaderList(10);
         cellList = this.createCellList();
     }
 
-    private List<ColumnHeader> createColumnHeaderList() {
+    private List<ColumnHeader> createColumnHeaderList(int size) {
         List<ColumnHeader> list = new ArrayList<>();
-
-        // Create Column Headers
-        list.add(new ColumnHeader("Id"));
-        list.add(new ColumnHeader("Name"));
-        list.add(new ColumnHeader("Nickname"));
-        list.add(new ColumnHeader("Email"));
-        list.add(new ColumnHeader("Birthday"));
-        list.add(new ColumnHeader("Sex"));
-        list.add(new ColumnHeader("Age"));
-
+        for (int i = 0; i < size; i++) {
+            // In this example, Row headers just shows the index of the TableView List.
+            list.add(new ColumnHeader("Room " + String.valueOf(i + 1)));
+        }
         return list;
     }
 
@@ -40,18 +39,12 @@ public class TableViewModel {
         // Creating cell model list from User list for Cell Items
         // In this example, User list is populated from web service
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < rowHeaderList.size(); i++) {
             List<Cell> list = new ArrayList<>();
 
-            // The order should be same with column header list;
-            list.add(new Cell("1-" + i));          // "Id"
-            list.add(new Cell("2-" + i));        // "Name"
-            list.add(new Cell("3-" + i));    // "Nickname"
-            list.add(new Cell("4-" + i));       // "Email"
-            list.add(new Cell("5-" + i));   // "BirthDay"
-            list.add(new Cell("6-" + i));      // "Gender"
-            list.add(new Cell("7-" + i));         // "Age"
-
+            for (int j = 0; j < columnHeaderList.size(); j++) {
+                list.add(new Cell(i + "-" + j));
+            }
             // Add
             lists.add(list);
         }
@@ -59,11 +52,11 @@ public class TableViewModel {
         return lists;
     }
 
-    private List<RowHeader> createRowHeaderList(int size) {
+    private List<RowHeader> createRowHeaderList() {
         List<RowHeader> list = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            // In this example, Row headers just shows the index of the TableView List.
-            list.add(new RowHeader(String.valueOf(i + 1)));
+
+        for (String interval: bookingIntervals) {
+            list.add(new RowHeader(interval));
         }
         return list;
     }

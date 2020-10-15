@@ -1,17 +1,17 @@
 package com.example.bookaroom.ui.tableView.model;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 import com.evrencoskun.tableview.sort.ISortableModel;
 
 public class Cell {
     private String data;
 
-    public Cell(@Nullable String oData) {
+    public Cell(@NonNull String oData) {
         this.data = oData;
     }
 
-    @Nullable
+    @NonNull
     public String getData() {
         return data;
     }

@@ -6,10 +6,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Corner"
+        android:layout_alignParentBottom="true"
+        android:text="@string/intervals"
         android:textColor="@color/table_view_default_text_color"
-        android:textSize="@dimen/text_size"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/room_id"
+        android:textColor="@color/table_view_default_text_color"
+        android:textSize="10sp"
         android:textStyle="bold" />
 
     <View
@@ -23,5 +32,10 @@
         android:layout_height="2dp"
         android:layout_alignParentBottom="true"
         android:background="@color/header_line_color" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/diagonalStyle"/>
 
 </RelativeLayout>
