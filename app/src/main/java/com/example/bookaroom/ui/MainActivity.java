@@ -47,9 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
 
 //         Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -109,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Handles the click action on main button
+     *
      * @param view the clicked element
      */
     public void onMainBtnClick(View view) {
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Handles the click action on Go Forward link
+     *
      * @param view the clicked element
      */
     public void onGoForwardClick(View view) {
@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Opens a provided URL in external browser
+     *
      * @param urlId the url to be opened
      */
     private void openURL(Integer urlId) {
@@ -184,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             handleSignInResult(task);
         }
     }
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);

@@ -34,6 +34,7 @@ public class BookingForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_booking_form);
         roomNum = (EditText) findViewById(R.id.room_no_input);
         startTime = (EditText) findViewById(R.id.start_time_input);
