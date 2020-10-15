@@ -287,7 +287,7 @@
         android:layout_marginStart="5sp"
         android:text="@string/my_bookings"
         android:gravity="center"
-        android:background="@drawable/rounded_corners"
+        android:background="@drawable/rounded_corners_blue"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/name_output"
         app:layout_constraintTop_toBottomOf="@id/success"  />
