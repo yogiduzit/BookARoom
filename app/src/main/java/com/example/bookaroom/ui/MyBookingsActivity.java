@@ -8,16 +8,16 @@ import android.view.View;
 
 import com.example.bookaroom.R;
 
-public class BookingForm extends AppCompatActivity {
+public class MyBookingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_form);
+        setContentView(R.layout.activity_my_bookings);
     }
 
-    public void onBookingConfirmed(View view) {
-        Intent intent = new Intent(this, BookingConfirmation.class);
+    public void onDeleteBookings(View view) {
+        Intent intent = new Intent(this, DeleteBookingActivity.class);
         startActivity(intent);
     }
 }
