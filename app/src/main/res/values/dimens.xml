@@ -7,4 +7,7 @@
     <!-- Overriding the default values of the tableView -->
     <dimen name="default_row_header_width">90dp</dimen>
     <dimen name="default_column_header_height">40dp</dimen>
+
+    <!-- Booking Form and Booking Confirmation -->
+    <dimen name="margin_booking_form">10dp</dimen>
 </resources>

@@ -42,15 +42,20 @@
     <string name="recreationActs">Recreation Activities</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
-    <string name="room_nu_service">Room No / Service:</string>
-    <string name="terms_and_conditions">I have read the terms and conditions</string>
+
     <string name="book">Book</string>
     <string name="my_bookings">My bookings</string>
     <string name="back">Back</string>
-    <string name="start">Start:</string>
-    <string name="end">End:</string>
-    <string name="date">Date:</string>
-    <string name="name">Name</string>
+
+    <!-- Booking Details Form -->
+    <string name="booking_room_nu_service">Room No / Service:</string>
+    <string name="booking_start">Start:</string>
+    <string name="booking_end">End:</string>
+    <string name="booking_date">Date:</string>
+    <string name="booking_name">Name</string>
+    <string name="terms_and_conditions">I have read the terms and conditions</string>
+    <string name="booking_confirmed">Your booking has been confirmed</string>
+
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
 
     <!-- Choose Bookings -->

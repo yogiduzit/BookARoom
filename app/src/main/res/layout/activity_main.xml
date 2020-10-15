@@ -8,7 +8,8 @@
     android:background="@color/BCIT"
     tools:context=".ui.MainActivity">
 
-    <include android:id="@+id/navigation_bar"
+    <include
+        android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/navbar_layout"
