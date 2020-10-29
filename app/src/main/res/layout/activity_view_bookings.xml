@@ -15,10 +15,7 @@
         android:id="@+id/navigation_bar"
         layout="@layout/navbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/mainMenuName"
@@ -58,5 +55,4 @@
                 android:text="@string/my_bookings"/>
         </com.google.android.material.tabs.TabLayout>
     </androidx.viewpager.widget.ViewPager>
-
 </LinearLayout>
