@@ -1,10 +1,11 @@
 package com.example.bookaroom.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.AutoCompleteTextView;
 
 import com.example.bookaroom.R;
 
@@ -13,7 +14,9 @@ import java.util.List;
 
 
 public class ViewBookings extends MainActivity {
-    private Spinner spinner;
+    private AutoCompleteTextView autoCompleteTextView;
+    private AutoCompleteTextView autoCompleteTextView2;
+    private AutoCompleteTextView autoCompleteTextView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,27 +25,32 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
-        addItemsToSpinner(R.id.recreational_spinner, recreationalArr);
-        addItemsToSpinner(R.id.library_spinner, libraryArr);
-        addItemsToSpinner(R.id.downtown_spinner, downtownArr);
+
+        addItemsToDropdown(R.id.filled_exposed_dropdown, recreationalArr, autoCompleteTextView);
+        addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr, autoCompleteTextView2);
+        addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr, autoCompleteTextView3);
+
     }
-    public void addItemsToSpinner(Integer id, String[] items){
-        spinner = findViewById(id);
+    public void addItemsToDropdown(Integer id, String[] items, AutoCompleteTextView autoCompleteTextView){
+        autoCompleteTextView = findViewById(id);
         List<String> list = new ArrayList<String>();
         for(int i = 0; i < items.length;i++){
             list.add(items[i]);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+                R.layout.dropdown_menu, list);
+        addListener(autoCompleteTextView);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setText(" ", false);
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        parent.getItemAtPosition(position);
-    }
-
-    public void onNothingSelected(AdapterView<?> parent){
-
+    private void addListener(AutoCompleteTextView autoCompleteTextView){
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ViewBookings.this, ChooseBooking.class);
+                startActivity(intent);
+            }
+        });
     }
 }
