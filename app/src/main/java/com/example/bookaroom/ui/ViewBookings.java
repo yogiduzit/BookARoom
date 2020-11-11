@@ -7,13 +7,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.bookaroom.R;
+import com.example.bookaroom.data.database.entity.Building;
+import com.example.bookaroom.ui.viewModel.ViewBookingViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ViewBookings extends MainActivity {
+public class ViewBookings extends AppCompatActivity {
     private AutoCompleteTextView autoCompleteTextView;
     private AutoCompleteTextView autoCompleteTextView2;
     private AutoCompleteTextView autoCompleteTextView3;
@@ -30,10 +36,20 @@ public class ViewBookings extends MainActivity {
         addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr, autoCompleteTextView2);
         addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr, autoCompleteTextView3);
 
+        ViewBookingViewModel viewModel = new ViewModelProvider(this).get(ViewBookingViewModel.class);
+        viewModel.getBuildings().observe(this, new Observer<List<Building>>() {
+            @Override
+            public void onChanged(List<Building> buildings) {
+                for(Building building: buildings) {
+                    System.out.println(building.toString());
+                }
+            }
+        });
+
     }
     public void addItemsToDropdown(Integer id, String[] items, AutoCompleteTextView autoCompleteTextView){
         autoCompleteTextView = findViewById(id);
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         for(int i = 0; i < items.length;i++){
             list.add(items[i]);
         }

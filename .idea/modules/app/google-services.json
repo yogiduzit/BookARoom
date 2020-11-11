@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "911707418112",
+    "firebase_url": "https://bookaroom-f4255.firebaseio.com",
+    "project_id": "bookaroom-f4255",
+    "storage_bucket": "bookaroom-f4255.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911707418112:android:dc8537cec1418a870f32e5",
+        "android_client_info": {
+          "package_name": "com.example.bookaroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911707418112-val7b9va4am9flpem56rp281u1k91vg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookaroom",
+            "certificate_hash": "40727d65fed9901f6fb3a1e91f86234e2a0cc5f4"
+          }
+        },
+        {
+          "client_id": "911707418112-6ie3fk270ecraaim2e5p6h5dahagduh2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYpQuBhv8Bxe0lR2wNHu1eq3hX_Rfm9z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911707418112-6ie3fk270ecraaim2e5p6h5dahagduh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
