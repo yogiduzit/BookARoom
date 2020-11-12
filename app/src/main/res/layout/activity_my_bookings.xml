@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.MyBookingsActivity">
 
-    <ImageView
+    <include
         android:id="@+id/navigation_bar"
+        layout="@layout/navbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:contentDescription="@string/BCIT_navigation_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bcit_navigation_bar" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/booking_detail"
-        android:layout_width="360dp"
-        android:layout_height="63dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:scaleType="fitXY"
         android:text="@string/menu"
         android:textSize="25sp"
@@ -29,193 +26,211 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/navigation_bar" />
 
-    <TextView
-        android:id="@+id/view_booking_nav"
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.TabLayout">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_bookings"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/my_bookings"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/view_bookings"
-        android:gravity="center"
-        app:layout_constraintEnd_toStartOf="@+id/my_booking_nav"
-        app:layout_constraintStart_toStartOf="@id/navigation_bar"
-        app:layout_constraintTop_toBottomOf="@id/booking_detail" />
+        android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/my_booking_nav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/my_bookings"
-        android:gravity="center"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/view_booking_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/booking_detail" />
+<!--    <TextView-->
+<!--        android:id="@+id/view_booking_nav"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/view_bookings"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/my_booking_nav"-->
+<!--        app:layout_constraintStart_toStartOf="@id/navigation_bar"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/booking_detail" />-->
 
-    <TextView
-        android:id="@+id/blank1"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
-        android:background="@color/grey"
-        android:scaleType="fitXY"
-        android:text=""
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/blank2"
-        app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />
+<!--    <TextView-->
+<!--        android:id="@+id/my_booking_nav"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/my_bookings"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="@color/black"-->
+<!--        app:layout_constraintStart_toEndOf="@id/view_booking_nav"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/booking_detail" />-->
 
-    <TextView
-        android:id="@+id/blank2"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
-        android:background="@color/BCIT"
-        android:scaleType="fitXY"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@id/blank1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />
+<!--    <TextView-->
+<!--        android:id="@+id/blank1"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@color/grey"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/blank2"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />-->
 
-    <ImageView
-        android:id="@+id/upper_edge"
-        android:layout_width="316dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/blank2"
-        app:srcCompat="@drawable/upper_edge"
-        android:contentDescription="@string/description" />
+<!--    <TextView-->
+<!--        android:id="@+id/blank2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@id/blank1"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/view_booking_nav" />-->
 
-    <View
-        android:id="@+id/divider1"
-        android:layout_width="1dp"
-        android:layout_height="180dp"
-        android:background="@color/BCIT"
-        android:layout_marginStart="12sp"
-        app:layout_constraintStart_toStartOf="@id/upper_edge"
-        app:layout_constraintTop_toBottomOf="@id/upper_edge" />
+<!--    <ImageView-->
+<!--        android:id="@+id/upper_edge"-->
+<!--        android:layout_width="316dp"-->
+<!--        android:layout_height="26dp"-->
+<!--        android:layout_marginTop="20sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/blank2"-->
+<!--        app:srcCompat="@drawable/upper_edge"-->
+<!--        android:contentDescription="@string/description" />-->
 
-    <ImageView
-        android:id="@+id/box_upper_edge"
-        android:layout_width="273dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="12sp"
-        app:layout_constraintStart_toStartOf="@id/divider1"
-        app:layout_constraintTop_toBottomOf="@id/upper_edge"
-        app:srcCompat="@drawable/box_upper_edge"
-        android:contentDescription="@string/description" />
+<!--    <View-->
+<!--        android:id="@+id/divider1"-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="180dp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:layout_marginStart="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="@id/upper_edge"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/upper_edge" />-->
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="1dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="7.5sp"
-        android:background="@color/BCIT"
-        app:layout_constraintStart_toEndOf="@id/box_upper_edge"
-        app:layout_constraintTop_toBottomOf="@id/upper_edge" />
+<!--    <ImageView-->
+<!--        android:id="@+id/box_upper_edge"-->
+<!--        android:layout_width="273dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginStart="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="@id/divider1"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/upper_edge"-->
+<!--        app:srcCompat="@drawable/box_upper_edge"-->
+<!--        android:contentDescription="@string/description" />-->
 
-    <TextView
-        android:id="@+id/room"
-        android:layout_width="81dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32.3sp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/sample_room"
-        android:textSize="18sp"
-        android:gravity="center"
-        app:layout_constraintStart_toEndOf="@id/divider1"
-        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />
-    <TextView
-        android:id="@+id/start"
-        android:layout_width="69.4dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="0.5sp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/sample_start_time"
-        android:gravity="center"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/room"
-        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />
-    <TextView
-        android:id="@+id/dash"
-        android:layout_width="10dp"
-        android:layout_height="30dp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/dash"
-        android:gravity="center"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/start"
-        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />
-    <TextView
-        android:id="@+id/end"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/sample_end_time"
-        android:textSize="18sp"
-        android:gravity="center"
-        app:layout_constraintStart_toEndOf="@id/dash"
-        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />
+<!--    <View-->
+<!--        android:id="@+id/divider2"-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="180dp"-->
+<!--        android:layout_marginStart="7.5sp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        app:layout_constraintStart_toEndOf="@id/box_upper_edge"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/upper_edge" />-->
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="149.4dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="0.5sp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/sample_name"
-        android:gravity="center"
-        app:layout_constraintStart_toEndOf="@id/room"
-        app:layout_constraintTop_toBottomOf="@id/start"  />
+<!--    <TextView-->
+<!--        android:id="@+id/room"-->
+<!--        android:layout_width="81dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginStart="32.3sp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/sample_room"-->
+<!--        android:textSize="18sp"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintStart_toEndOf="@id/divider1"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />-->
+<!--    <TextView-->
+<!--        android:id="@+id/start"-->
+<!--        android:layout_width="69.4dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginStart="0.5sp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/sample_start_time"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/room"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />-->
+<!--    <TextView-->
+<!--        android:id="@+id/dash"-->
+<!--        android:layout_width="10dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/dash"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/start"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />-->
+<!--    <TextView-->
+<!--        android:id="@+id/end"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/sample_end_time"-->
+<!--        android:textSize="18sp"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintStart_toEndOf="@id/dash"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/box_upper_edge"  />-->
 
-    <TextView
-        android:id="@+id/room_number"
-        android:layout_width="81dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="32.3sp"
-        android:background="@color/BCIT"
-        android:textColor="@color/white"
-        android:text="@string/sample_room_number"
-        android:gravity="center"
-        app:layout_constraintStart_toEndOf="@id/divider1"
-        app:layout_constraintTop_toBottomOf="@id/room"  />
+<!--    <TextView-->
+<!--        android:id="@+id/name"-->
+<!--        android:layout_width="149.4dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="0.5sp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/sample_name"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintStart_toEndOf="@id/room"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/start"  />-->
 
-    <ImageView
-        android:id="@+id/box_lower_edge"
-        android:layout_width="239dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="27.5sp"
-        app:layout_constraintStart_toEndOf="@id/divider1"
-        app:layout_constraintTop_toBottomOf="@id/room_number"
-        app:srcCompat="@drawable/box_lower_edge"
-        android:contentDescription="@string/description" />
+<!--    <TextView-->
+<!--        android:id="@+id/room_number"-->
+<!--        android:layout_width="81dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="32.3sp"-->
+<!--        android:background="@color/BCIT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:text="@string/sample_room_number"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintStart_toEndOf="@id/divider1"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/room"  />-->
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:layout_marginStart="35sp"
-        android:text="@string/delete"
-        android:gravity="center"
-        android:background="@drawable/rounded_corner_delete_button"
-        android:textColor="@color/white"
-        android:onClick="onDeleteBookings"
-        app:layout_constraintStart_toStartOf="@id/box_lower_edge"
-        app:layout_constraintTop_toBottomOf="@id/box_lower_edge"  />
+<!--    <ImageView-->
+<!--        android:id="@+id/box_lower_edge"-->
+<!--        android:layout_width="239dp"-->
+<!--        android:layout_height="21dp"-->
+<!--        android:layout_marginStart="27.5sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/divider1"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/room_number"-->
+<!--        app:srcCompat="@drawable/box_lower_edge"-->
+<!--        android:contentDescription="@string/description" />-->
 
-    <ImageView
-        android:id="@+id/lower_edge"
-        android:layout_width="295dp"
-        android:layout_height="28dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@id/blank1"
-        android:layout_marginStart="1sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider1"
-        app:srcCompat="@drawable/lower_edge"
-        android:contentDescription="@string/description" />
+<!--    <Button-->
+<!--        android:id="@+id/delete"-->
+<!--        android:layout_width="165dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20sp"-->
+<!--        android:layout_marginStart="35sp"-->
+<!--        android:text="@string/delete"-->
+<!--        android:gravity="center"-->
+<!--        android:background="@drawable/rounded_corner_delete_button"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:onClick="onDeleteBookings"-->
+<!--        app:layout_constraintStart_toStartOf="@id/box_lower_edge"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/box_lower_edge"  />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/lower_edge"-->
+<!--        android:layout_width="295dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        app:layout_constraintStart_toStartOf="@id/blank1"-->
+<!--        android:layout_marginStart="1sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/divider1"-->
+<!--        app:srcCompat="@drawable/lower_edge"-->
+<!--        android:contentDescription="@string/description" />-->
+
+</LinearLayout>

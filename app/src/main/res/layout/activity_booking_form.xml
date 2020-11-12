@@ -77,8 +77,9 @@
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:autofillHints="startTime"
+        android:clickable="true"
+        android:editable="false"
         android:background="@drawable/rounded_corners_normal"
-        android:inputType="text"
         app:layout_constraintEnd_toEndOf="@id/room_no_input"
         app:layout_constraintStart_toStartOf="@id/room_no_input"
         app:layout_constraintTop_toBottomOf="@id/room_no_input" />
@@ -102,8 +103,9 @@
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:autofillHints="endTime"
+        android:clickable="true"
+        android:editable="false"
         android:background="@drawable/rounded_corners_normal"
-        android:inputType="text"
         app:layout_constraintEnd_toEndOf="@id/start_time_input"
         app:layout_constraintStart_toStartOf="@id/start_time_input"
         app:layout_constraintTop_toBottomOf="@id/start_time_input" />
@@ -126,6 +128,9 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
+        android:clickable="true"
+
+        android:editable="false"
         android:autofillHints="endTime"
         android:background="@drawable/rounded_corners_normal"
         android:inputType="date"
@@ -178,9 +183,9 @@
         android:background="@drawable/rounded_corners_blue"
         android:text="@string/book"
         android:textColor="@color/white"
+        android:onClick="onBookingConfirmed"
         app:layout_constraintTop_toBottomOf="@id/terms_and_conditions"
         app:layout_constraintBottom_toTopOf="@id/back_button"
-        android:onClick="onBookingConfirmed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
