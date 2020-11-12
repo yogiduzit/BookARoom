@@ -41,4 +41,8 @@
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
+    <string name="email">Email:</string>
+    <string name="name">Name:</string>
+    <string name="id">ID:</string>
+    <string name="signOut">Sign out</string>
 </resources>
