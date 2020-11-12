@@ -26,13 +26,6 @@ public class ViewBookingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_view_booking, container, false);
-        String[] recreationalArr = getResources().getStringArray(R.array.recreational);
-        String[] libraryArr = getResources().getStringArray(R.array.library);
-        String[] downtownArr = getResources().getStringArray(R.array.downtown);
-
-        addItemsToDropdown(rootView, R.id.filled_exposed_dropdown, recreationalArr, autoCompleteTextView);
-        addItemsToDropdown(rootView, R.id.filled_exposed_dropdown2, libraryArr, autoCompleteTextView2);
-        addItemsToDropdown(rootView, R.id.filled_exposed_dropdown3, downtownArr, autoCompleteTextView3);
 
         return rootView;
 

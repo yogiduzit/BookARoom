@@ -30,8 +30,6 @@
     <string name="name">Name:</string>
     <string name="id">ID:</string>
     <string name="signOut">Sign out</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
 
     <string name="recreational" translatable="false">Recreational</string>
     <string name="library" translatable="false">Library</string>
@@ -73,7 +71,6 @@
     <string name="intervals">Intervals</string>
     <string name="book_button">Book</string>
     <string name="choose_bookings">Choose Bookings</string>
-    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="my_profile">My Profile</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
