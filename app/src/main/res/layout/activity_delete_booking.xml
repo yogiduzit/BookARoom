@@ -6,15 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.DeleteBookingActivity">
 
-    <ImageView
+    <include
         android:id="@+id/navigation_bar"
+        layout="@layout/navbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:contentDescription="@string/BCIT_navigation_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bcit_navigation_bar" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/booking_detail"
