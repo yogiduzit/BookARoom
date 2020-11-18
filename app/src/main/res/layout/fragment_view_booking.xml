@@ -3,11 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ViewBookingFragment"
     android:theme="@style/Theme.MaterialComponents"
     android:orientation="vertical">
+    <include
+        android:id="@+id/navigation_bar"
+        layout="@layout/navbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/mainMenuName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="@string/main_menu_name"
+        android:textColor="@color/black"
+        android:textSize="27sp" />
+
     <TextView
         android:id="@+id/filled_exposed_dropdown_desc"
         android:layout_width="match_parent"
@@ -53,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/library"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +102,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/downtown"
         app:layout_constraintEnd_toEndOf="parent"

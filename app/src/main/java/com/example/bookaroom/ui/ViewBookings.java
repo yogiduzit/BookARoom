@@ -32,7 +32,7 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
-
+//
 //        addItemsToDropdown(R.id.filled_exposed_dropdown, recreationalArr, autoCompleteTextView);
 //        addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr, autoCompleteTextView2);
 //        addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr, autoCompleteTextView3);
@@ -48,7 +48,7 @@ public class ViewBookings extends MainActivity {
 //            list.add(items[i]);
 //        }
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                R.layout.dropdown_menu, list);
+//                R.layout.dropdown_menu_item, list);
 //        addListener(autoCompleteTextView);
 //        autoCompleteTextView.setAdapter(adapter);
 //        autoCompleteTextView.setText(" ", false);
@@ -68,16 +68,14 @@ public class ViewBookings extends MainActivity {
         public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}
 
         @Override
-        public int getCount(){return 3;}
+        public int getCount(){return 2;}
 
         @Override
         public Fragment getItem(int position){
             switch (position){
                 case 0:
-                    return new TopFragment();
-                case 1:
                     return new ViewBookingFragment();
-                case 2:
+                case 1:
                     return new MyBookingFragment();
             }
             return null;
@@ -86,9 +84,9 @@ public class ViewBookings extends MainActivity {
         @Override
         public CharSequence getPageTitle(int position){
             switch (position){
-                case 1:
+                case 0:
                     return getResources().getText(R.string.view_bookings);
-                case 2:
+                case 1:
                     return getResources().getText(R.string.my_bookings);
             }
             return null;
