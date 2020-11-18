@@ -42,17 +42,16 @@ public class BookingForm extends AppCompatActivity {
         date = (EditText) findViewById(R.id.date_input);
         name = (EditText) findViewById(R.id.booking_name_input);
         bookBtn = (Button) findViewById(R.id.book_button);
-        checkBox = (CheckBox)findViewById(R.id.confirmation_checkbox);
+        checkBox = (CheckBox)findViewById(R.id.terms_and_conditions);
         dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
         final int[] ids = new int[]{R.id.room_no_input, R.id.start_time_input, R.id.end_time_input, R.id.date_input, R.id.booking_name_input};
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox.isChecked()){
-                    return;
-                } else{
+                if(!checkBox.isChecked()){
                     Toast.makeText(getApplicationContext(), "Please agree to terms and conditions.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if(!validate(ids)){
                     Intent intent = new Intent(BookingForm.this, BookingConfirmation.class);
