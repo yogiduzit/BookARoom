@@ -32,37 +32,11 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
-//
-//        addItemsToDropdown(R.id.filled_exposed_dropdown, recreationalArr, autoCompleteTextView);
-//        addItemsToDropdown(R.id.filled_exposed_dropdown2, libraryArr, autoCompleteTextView2);
-//        addItemsToDropdown(R.id.filled_exposed_dropdown3, downtownArr, autoCompleteTextView3);
 
         SectionsPageAdapter pageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(pageAdapter);
     }
-//    public void addItemsToDropdown(Integer id, String[] items, AutoCompleteTextView autoCompleteTextView){
-//        autoCompleteTextView = findViewById(id);
-//        List<String> list = new ArrayList<String>();
-//        for(int i = 0; i < items.length;i++){
-//            list.add(items[i]);
-//        }
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                R.layout.dropdown_menu_item, list);
-//        addListener(autoCompleteTextView);
-//        autoCompleteTextView.setAdapter(adapter);
-//        autoCompleteTextView.setText(" ", false);
-//    }
-
-//    private void addListener(AutoCompleteTextView autoCompleteTextView){
-//        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(ViewBookings.this, ChooseBooking.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
 
     public class SectionsPageAdapter extends FragmentPagerAdapter{
         public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}
