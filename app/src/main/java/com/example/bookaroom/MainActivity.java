@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String BCIT_URL = "https://id.bcit.ca";
     public static final String GO_FORWARD_URL = "https://www.bcit.ca/covid-19/return-to-operations/";
     SignInButton signin;
+    Button mainButton;
     int RC_SIGN_IN = 0;
     GoogleSignInClient mGoogleSignInClient;
     /**
@@ -45,11 +47,20 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
-//        setupLinks();
-//        setButtonTitle();
-        // Configure sign-in to request the user's ID, email address, and basic
+
+
+//         Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        mainButton = findViewById(R.id.mainBtn);
+        mainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewBookings = new Intent(MainActivity.this, GoogleLoginActivity.class);
+                startActivity(viewBookings);
+            }
+        });
         signin = findViewById(R.id.sign_in_button);
+        setButtonTitle();
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,36 +74,50 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        // Build a GoogleSignInClient with the options specified by gso.
+//         Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        refresh();
+        setButtonTitle();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        // Check for existing Google Sign In account, if the user is already signed in
-//// the GoogleSignInAccount will be non-null.
-//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-//        updateUI(account);
-//    }
+    public void refresh() {
+        if (loggedIn) {
+            loggedIn = false;
+        }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Check for existing Google Sign In account, if the user is already signed in
+// the GoogleSignInAccount will be non-null.
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        updateUI(account);
+    }
+
+    private void updateUI(GoogleSignInAccount account) {
+        if (account != null) {
+
+            loggedIn = true;
+            mainButton.setVisibility(View.VISIBLE);
+            signin.setVisibility(View.GONE);
+        }
+    }
 
     /**
      * Handles the click action on main button
      * @param view the clicked element
      */
-//    public void onMainBtnClick(View view) {
-//        if (!loggedIn) {
-//            openURL(view.getId());
-//        } else {
-//            Intent viewBookings = new Intent(this, ViewBookings.class);
-//            startActivity(viewBookings);
-//        }
-//    }
     public void onMainBtnClick(View view) {
-        Intent i = new Intent(this, GoogleLoginActivity.class);
-        startActivity(i);
-
+        if (!loggedIn) {
+            signIn();
+        } else {
+            Intent viewBookings = new Intent(MainActivity.this, ViewBookings.class);
+            startActivity(viewBookings);
+        }
     }
+
 
     /**
      * Handles the click action on Go Forward link
@@ -117,11 +142,16 @@ public class MainActivity extends AppCompatActivity {
      * If the user is logged in, set it to "View bookings"
      * If the user isn't logged in, set it to "Login"
      */
-//    private void setButtonTitle() {
-//        TextView mainBtn = (TextView) findViewById(R.id.mainBtn);
-//        String title = getString(loggedIn ? R.string.view_bookings : R.string.login);
-//        mainBtn.setText(title);
-//    }
+    public void setButtonTitle() {
+        if (loggedIn) {
+            mainButton.setVisibility(View.VISIBLE);
+            signin.setVisibility(View.GONE);
+        } else {
+            mainButton.setVisibility(View.GONE);
+            signin.setVisibility(View.VISIBLE);
+        }
+        refresh();
+    }
 
     /**
      * Opens a provided URL in external browser
@@ -136,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        refresh();
+        setButtonTitle();
     }
 
     @Override
@@ -153,14 +185,18 @@ public class MainActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            refresh();
+            setButtonTitle();
 
-            // Signed in successfully, show authenticated UI.
+//             Signed in successfully, show authenticated UI.
             Intent intent = new Intent(MainActivity.this, GoogleLoginActivity.class);
             startActivity(intent);
+
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
+            updateUI(null);
         }
     }
 }
