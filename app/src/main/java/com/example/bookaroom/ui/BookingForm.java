@@ -1,5 +1,6 @@
 package com.example.bookaroom.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -22,7 +23,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class BookingForm extends AppCompatActivity {
-    EditText roomNum, startTime, endTime, date, name;
+    EditText roomNum, startTime, endTime, etDate, name;
     CheckBox checkBox;
     private Calendar myCalendar = Calendar.getInstance();
     private Calendar myClock = Calendar.getInstance();
@@ -30,6 +31,7 @@ public class BookingForm extends AppCompatActivity {
     DatePickerDialog datePicker;
     TimePickerDialog timePicker;
     Button bookBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +41,12 @@ public class BookingForm extends AppCompatActivity {
         roomNum = (EditText) findViewById(R.id.room_no_input);
         startTime = (EditText) findViewById(R.id.start_time_input);
         endTime = (EditText) findViewById(R.id.end_time_input);
-        date = (EditText) findViewById(R.id.date_input);
+        etDate = (EditText) findViewById(R.id.date_input);
         name = (EditText) findViewById(R.id.booking_name_input);
         bookBtn = (Button) findViewById(R.id.book_button);
         checkBox = (CheckBox)findViewById(R.id.terms_and_conditions);
         dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+
         final int[] ids = new int[]{R.id.room_no_input, R.id.start_time_input, R.id.end_time_input, R.id.date_input, R.id.booking_name_input};
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +57,7 @@ public class BookingForm extends AppCompatActivity {
                     return;
                 }
                 if(!validate(ids)){
+//                    addBooking();
                     Intent intent = new Intent(BookingForm.this, BookingConfirmation.class);
                     startActivity(intent);
                 } else {
@@ -94,14 +98,15 @@ public class BookingForm extends AppCompatActivity {
             }
         });
 
-        date.setOnClickListener(new View.OnClickListener() {
+
+        etDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datePicker = new DatePickerDialog(BookingForm.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         myCalendar.set(year, month, dayOfMonth);
-                        date.setText(dateFormat.format(myCalendar.getTime()));
+                        etDate.setText(dateFormat.format(myCalendar.getTime()));
                     }
                 }, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
                 datePicker.setTitle("Select Date:");
@@ -126,4 +131,30 @@ public class BookingForm extends AppCompatActivity {
         Intent intent = new Intent(this, BookingConfirmation.class);
         startActivity(intent);
     }
+
+//    private void addBooking(){
+//        String roomID = roomNum.getText().toString().trim();
+//        String start = startTime.getText().toString().trim();
+//        String end = endTime.getText().toString().trim();
+//        String date = etDate.getText().toString().trim();
+//        String userName = name.getText().toString().trim();
+//
+//        String id = databaseBookings.push().getKey();
+//
+//        Booking booking = new Booking(id, roomID, start, end, date, userName);
+//
+//        Task setValueTask = databaseBookings.child(id).setValue(booking);
+//        setValueTask.addOnSuccessListener(new OnSuccessListener() {
+//            @Override
+//            public void onSuccess(Object o) {
+//                Toast.makeText(BookingForm.this, "Booking added", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        setValueTask.addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(BookingForm.this, "Booking wasn't added.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 }
