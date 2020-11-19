@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 import com.example.bookaroom.R;
 import com.example.bookaroom.ui.ChooseBooking;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class BuildingsAdapter extends RecyclerView.Adapter<BuildingsAdapter.ViewHolder> {
     private ArrayList<Building> buildings;
@@ -48,6 +50,8 @@ public class BuildingsAdapter extends RecyclerView.Adapter<BuildingsAdapter.View
         Building building = buildings.get(position);
 
         AutoCompleteTextView dropdown = view.findViewById(R.id.filled_exposed_dropdown);
+        TextInputLayout caption = view.findViewById(R.id.filled_exposed_dropdown_container);
+        caption.setHint(building.getName() != null ? building.getName() : building.getId());
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(),
                 R.layout.dropdown_menu_item, building.getBookables());
         addListener(dropdown);
