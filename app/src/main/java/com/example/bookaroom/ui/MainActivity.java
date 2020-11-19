@@ -52,23 +52,17 @@ public class MainActivity extends AppCompatActivity {
 //         Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         mainButton = findViewById(R.id.mainBtn);
-        mainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewBookings = new Intent(MainActivity.this, ViewBookings.class);
-                startActivity(viewBookings);
-            }
+        mainButton.setOnClickListener(v -> {
+            Intent viewBookings = new Intent(MainActivity.this, ViewBookings.class);
+            startActivity(viewBookings);
         });
         signin = findViewById(R.id.sign_in_button);
         setButtonTitle();
-        signin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.sign_in_button:
-                        signIn();
-                        break;
-                }
+        signin.setOnClickListener(v -> {
+            switch (v.getId()) {
+                case R.id.sign_in_button:
+                    signIn();
+                    break;
             }
         });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -98,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(GoogleSignInAccount account) {
         if (account != null) {
-
             loggedIn = true;
             mainButton.setVisibility(View.VISIBLE);
             signin.setVisibility(View.GONE);

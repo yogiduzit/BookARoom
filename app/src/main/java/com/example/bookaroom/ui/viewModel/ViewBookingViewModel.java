@@ -2,56 +2,101 @@ package com.example.bookaroom.ui.viewModel;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.bookaroom.data.database.access.BookableManager;
 import com.example.bookaroom.data.database.access.BuildingManager;
+import com.example.bookaroom.data.database.access.CampusManager;
 import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.data.database.entity.Building;
-import com.example.bookaroom.data.database.entity.Campus;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class ViewBookingViewModel extends ViewModel {
     private static final String TAG = ViewModel.class.getSimpleName();
 
-    private MutableLiveData<List<Campus>> campuses;
-    private MutableLiveData<List<Building>> buildings;
-    private MutableLiveData<List<Bookable>> bookables;
+    private MutableLiveData<HashMap<String, HashMap<String, Building>>> bookables;
+    private HashMap<String, HashMap<String, Building>> temp;
 
+    private CampusManager campusManager;
     private BuildingManager buildingManager;
+    private BookableManager bookableManager;
 
-    public LiveData<List<Building>> getBuildings() {
-        if (buildings == null) {
-            buildings = new MutableLiveData<>();
-            loadBuildings();
-        }
-        return buildings;
+    public ViewBookingViewModel() {
+        campusManager = new CampusManager();
+        buildingManager = new BuildingManager();
+        bookableManager = new BookableManager();
+        temp = new HashMap<>();
     }
 
-    private void loadBuildings() {
-        BuildingManager manager = new BuildingManager();
-        manager.getBuildings().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    ArrayList retrievedBuildings = new ArrayList<Building>();
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Building building = new Building(document.getDocumentReference("campus").getId(), document.getId(), document.getString("name"));
-                        retrievedBuildings.add(building);
-                    }
-                    buildings.setValue(retrievedBuildings);
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
+    public MutableLiveData<HashMap<String, HashMap<String, Building>>> getBookables() {
+        if (bookables == null) {
+            bookables = new MutableLiveData<>();
+            loadCampuses();
+        }
+        return bookables;
+    }
+
+    private void loadCampuses() {
+        temp.clear();
+        campusManager.getCampuses().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.d(TAG, "Error getting documents: ", task.getException());
+                return;
+            }
+            ArrayList<Task<QuerySnapshot>> tasks = new ArrayList<>();
+            for (QueryDocumentSnapshot campusSnapshot : task.getResult()) {
+                String campusId = campusSnapshot.getId();
+                if (temp.get(campusId) == null) {
+                    temp.put(campusId, new HashMap<>());
+                    tasks.add(buildingManager.getBuildingsInCampus(campusId));
                 }
             }
+            Tasks.whenAllComplete(tasks).addOnCompleteListener(campusTasks -> {
+                for (Task<?> campusTask : Objects.requireNonNull(campusTasks.getResult())) {
+                    if (!campusTask.isSuccessful()) {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                        return;
+                    }
+                    QuerySnapshot buildingsSnapshot = (QuerySnapshot) campusTask.getResult();
+                    ArrayList<Task<QuerySnapshot>> buildingsTasks = new ArrayList<>();
+                    for (QueryDocumentSnapshot buildingSnapshot : buildingsSnapshot) {
+                        String buildingId = buildingSnapshot.getId();
+                        String campusId = buildingSnapshot.getReference().getParent().getParent().getId();
+                        if (temp.get(campusId).get(buildingId) == null) {
+                            temp.get(campusId).put(buildingId, new Building(campusId, buildingId, buildingSnapshot.getString("name")));
+                        }
+                        buildingsTasks.add(bookableManager.getBookables(campusId, buildingId));
+                    }
+                    Tasks.whenAllComplete(buildingsTasks).addOnCompleteListener(buildingTasks -> {
+                        for (Task<?> buildingTask : Objects.requireNonNull(buildingTasks.getResult())) {
+                            if (!buildingTask.isSuccessful()) {
+                                Log.d(TAG, "Error getting documents: ", task.getException());
+                                return;
+                            }
+                            QuerySnapshot bookablesSnapshot = (QuerySnapshot) buildingTask.getResult();
+                            for (QueryDocumentSnapshot bookableSnapshot: bookablesSnapshot) {
+                                DocumentReference buildingRef = bookableSnapshot.getReference().getParent().getParent();
+                                String buildingId = buildingRef.getId();
+                                String campusId = buildingRef.getParent().getParent().getId();
+                                temp.get(campusId).get(buildingId).addBookable(bookableSnapshot.getId());
+                            }
+                        }
+                    }).addOnCompleteListener(finalTask -> {
+                        bookables.setValue(temp);
+                    });
+                }
+            });
         });
     }
 }

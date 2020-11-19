@@ -14,7 +14,8 @@
 
         <activity android:name=".ui.BookingConfirmation" />
         <activity android:name=".ui.BookingForm" />
-        <activity android:name=".ui.ChooseBooking"/>
+        <activity android:name=".ui.ChooseBooking">
+        </activity>
         <activity android:name=".ui.DeleteBookingActivity"></activity>
         <activity android:name=".ui.MyBookingsActivity"/>
         <activity android:name=".ui.ViewBookings"/>
