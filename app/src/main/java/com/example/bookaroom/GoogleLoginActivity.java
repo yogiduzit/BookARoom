@@ -13,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bookaroom.ui.MainActivity;
 import com.example.bookaroom.ui.ViewBookings;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -79,12 +81,14 @@ public class GoogleLoginActivity extends AppCompatActivity {
 
     }
     private void signOut() {
+
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(GoogleLoginActivity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
-                        finish();
+                        Intent i = new Intent(GoogleLoginActivity.this, MainActivity.class);
+                        startActivity(i);
                     }
                 });
     }
