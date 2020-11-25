@@ -30,7 +30,8 @@
     <style name="AppTheme.ExposedDropdownMenu.AutoCompleteStyle">
         <item name="android:padding">16dp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 
     <style name="MaterialSpinnerItem"
