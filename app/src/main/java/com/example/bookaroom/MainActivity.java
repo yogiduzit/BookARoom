@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Authentication status of the user
      */
-    private boolean loggedIn = false;
+    private boolean loggedIn = true;
 
     /**
      * Stores the key value pairs containing the button id
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewBookings = new Intent(MainActivity.this, GoogleLoginActivity.class);
+                Intent viewBookings = new Intent(MainActivity.this, ViewBookings.class);
                 startActivity(viewBookings);
             }
         });
@@ -189,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             setButtonTitle();
 
 //             Signed in successfully, show authenticated UI.
-            Intent intent = new Intent(MainActivity.this, GoogleLoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, ViewBookings.class);
             startActivity(intent);
 
         } catch (ApiException e) {

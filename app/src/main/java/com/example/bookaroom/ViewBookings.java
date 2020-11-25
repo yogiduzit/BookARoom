@@ -1,18 +1,29 @@
 package com.example.bookaroom;
 
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.AutoCompleteTextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import com.example.bookaroom.MyBookingFragment;
+import com.example.bookaroom.R;
+import com.example.bookaroom.ViewBookingFragment;
+import com.example.bookaroom.TopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ViewBookings extends MainActivity {
-    private Spinner spinner;
+    private AutoCompleteTextView autoCompleteTextView;
+    private AutoCompleteTextView autoCompleteTextView2;
+    private AutoCompleteTextView autoCompleteTextView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,27 +32,42 @@ public class ViewBookings extends MainActivity {
         String[] recreationalArr = getResources().getStringArray(R.array.recreational);
         String[] libraryArr = getResources().getStringArray(R.array.library);
         String[] downtownArr = getResources().getStringArray(R.array.downtown);
-        addItemsToSpinner(R.id.recreational_spinner, recreationalArr);
-        addItemsToSpinner(R.id.library_spinner, libraryArr);
-        addItemsToSpinner(R.id.downtown_spinner, downtownArr);
+
+        SectionsPageAdapter pageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(pageAdapter);
     }
-    public void addItemsToSpinner(Integer id, String[] items){
-        spinner = findViewById(id);
-        List<String> list = new ArrayList<String>();
-        for(int i = 0; i < items.length;i++){
-            list.add(items[i]);
+
+    public class SectionsPageAdapter extends FragmentPagerAdapter{
+        public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}
+
+        @Override
+        public int getCount(){return 3;}
+
+        @Override
+        public Fragment getItem(int position){
+            switch (position){
+                case 0:
+                    return new ViewBookingFragment();
+                case 1:
+                    return new MyBookingFragment();
+                case 2:
+                    return new MyProfileFragment();
+            }
+            return null;
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        parent.getItemAtPosition(position);
-    }
-
-    public void onNothingSelected(AdapterView<?> parent){
-
+        @Override
+        public CharSequence getPageTitle(int position){
+            switch (position){
+                case 0:
+                    return getResources().getText(R.string.view_bookings);
+                case 1:
+                    return getResources().getText(R.string.my_bookings);
+                case 2:
+                    return getResources().getText(R.string.my_profile);
+            }
+            return null;
+        }
     }
 }
