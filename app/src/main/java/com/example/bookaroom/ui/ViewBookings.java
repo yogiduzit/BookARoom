@@ -12,9 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.example.bookaroom.MyBookingFragment;
+import com.example.bookaroom.MyProfileFragment;
 import com.example.bookaroom.R;
 import com.example.bookaroom.ViewBookingFragment;
-import com.example.bookaroom.ui.tableView.TopFragment;
+import com.example.bookaroom.TopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class ViewBookings extends MainActivity {
         public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}
 
         @Override
-        public int getCount(){return 2;}
+        public int getCount(){return 3;}
 
         @Override
         public Fragment getItem(int position){
@@ -51,6 +52,8 @@ public class ViewBookings extends MainActivity {
                     return new ViewBookingFragment();
                 case 1:
                     return new MyBookingFragment();
+                case 2:
+                    return new MyProfileFragment();
             }
             return null;
         }
@@ -62,6 +65,8 @@ public class ViewBookings extends MainActivity {
                     return getResources().getText(R.string.view_bookings);
                 case 1:
                     return getResources().getText(R.string.my_bookings);
+                case 2:
+                    return getResources().getText(R.string.my_profile);
             }
             return null;
         }

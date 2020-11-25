@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">BookARoom</string>
     <string name="main_menu_name" translatable="false">Main Menu</string>
-    <string name="recreational" translatable="false">Recreational</string>
-    <string name="library" translatable="false">Library</string>
-    <string name="downtown" translatable="false">Downtown</string>
+
     <string-array name="recreational">
         <item>Basketball</item>
         <item>Badminton</item>
@@ -19,11 +17,30 @@
         <item>Sixth Floor</item>
     </string-array>
     <string name="BCIT_logo">Logo of BCIT</string>
-    <string name="BCIT_navigation_bar">Navigation bar of BCIT</string>
-    <string name="booking_details">Booking details</string>
+
     <string name="recreationActs">Recreation Activities</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
+
+    <!-- Booking Details Form -->
+
+
+    <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
+    <string name="email">Email:</string>
+    <string name="name">Name:</string>
+    <string name="id">ID:</string>
+    <string name="signOut">Sign out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="recreational" translatable="false">Recreational</string>
+    <string name="library" translatable="false">Library</string>
+    <string name="downtown" translatable="false">Downtown</string>
+
+
+    <string name="BCIT_navigation_bar">Navigation bar of BCIT</string>
+    <string name="booking_details">Booking details</string>
+
     <string name="book">Book</string>
     <string name="my_bookings">My Bookings</string>
     <string name="back">Back</string>
@@ -50,7 +67,6 @@
     <string name="delete">Delete</string>
     <string name="description">A description</string>
 
-    <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
 
     <!-- Choose Bookings -->
     <string name="room_id">Room ID</string>
@@ -58,5 +74,7 @@
     <string name="book_button">Book</string>
     <string name="choose_bookings">Choose Bookings</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="my_profile">My Profile</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

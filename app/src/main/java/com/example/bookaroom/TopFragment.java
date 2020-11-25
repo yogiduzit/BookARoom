@@ -1,4 +1,4 @@
-package com.example.bookaroom.ui.tableView;
+package com.example.bookaroom;
 
 import android.os.Bundle;
 
