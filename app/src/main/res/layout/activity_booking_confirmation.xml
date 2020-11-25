@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@id/background_view" />
 
     <TextView
-        android:id="@+id/room_no_input"
+        android:id="@+id/room_no_output"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginHorizontal="@dimen/margin_booking_form"
@@ -70,14 +70,14 @@
         app:layout_constraintTop_toBottomOf="@id/room_no_label" />
 
     <TextView
-        android:id="@+id/start_time_input"
+        android:id="@+id/start_time_output"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:background="@drawable/rounded_corners_normal"
-        app:layout_constraintEnd_toEndOf="@id/room_no_input"
-        app:layout_constraintStart_toStartOf="@id/room_no_input"
-        app:layout_constraintTop_toBottomOf="@id/room_no_input" />
+        app:layout_constraintEnd_toEndOf="@id/room_no_output"
+        app:layout_constraintStart_toStartOf="@id/room_no_output"
+        app:layout_constraintTop_toBottomOf="@id/room_no_output" />
 
     <TextView
         android:id="@+id/end_time_label"
@@ -93,14 +93,14 @@
         app:layout_constraintTop_toBottomOf="@id/start_time_label" />
 
     <TextView
-        android:id="@+id/end_time_input"
+        android:id="@+id/end_time_output"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:background="@drawable/rounded_corners_normal"
-        app:layout_constraintEnd_toEndOf="@id/start_time_input"
-        app:layout_constraintStart_toStartOf="@id/start_time_input"
-        app:layout_constraintTop_toBottomOf="@id/start_time_input" />
+        app:layout_constraintEnd_toEndOf="@id/start_time_output"
+        app:layout_constraintStart_toStartOf="@id/start_time_output"
+        app:layout_constraintTop_toBottomOf="@id/start_time_output" />
 
     <TextView
         android:id="@+id/date_label"
@@ -116,14 +116,14 @@
         app:layout_constraintTop_toBottomOf="@id/end_time_label" />
 
     <TextView
-        android:id="@+id/date_input"
+        android:id="@+id/date_output"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:background="@drawable/rounded_corners_normal"
-        app:layout_constraintEnd_toEndOf="@id/end_time_input"
-        app:layout_constraintStart_toStartOf="@id/end_time_input"
-        app:layout_constraintTop_toBottomOf="@id/end_time_input" />
+        app:layout_constraintEnd_toEndOf="@id/end_time_output"
+        app:layout_constraintStart_toStartOf="@id/end_time_output"
+        app:layout_constraintTop_toBottomOf="@id/end_time_output" />
 
     <TextView
         android:id="@+id/booking_name_label"
@@ -139,14 +139,14 @@
         app:layout_constraintTop_toBottomOf="@id/date_label" />
 
     <TextView
-        android:id="@+id/booking_name_input"
+        android:id="@+id/booking_name_output"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginVertical="@dimen/margin_booking_form"
         android:background="@drawable/rounded_corners_normal"
-        app:layout_constraintEnd_toEndOf="@id/date_input"
-        app:layout_constraintStart_toStartOf="@id/date_input"
-        app:layout_constraintTop_toBottomOf="@id/date_input" />
+        app:layout_constraintEnd_toEndOf="@id/date_output"
+        app:layout_constraintStart_toStartOf="@id/date_output"
+        app:layout_constraintTop_toBottomOf="@id/date_output" />
     
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/form_barrier"
@@ -154,7 +154,7 @@
         android:layout_height="wrap_content"
         app:barrierMargin="20dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="booking_name_input"/>
+        app:constraint_referenced_ids="booking_name_output"/>
 
     <include layout="@layout/confirmation_layout"
         android:id="@id/confirmation_popup"

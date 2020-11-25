@@ -1,11 +1,9 @@
 package com.example.bookaroom.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,25 +12,15 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.bookaroom.MyBookingFragment;
 import com.example.bookaroom.MyProfileFragment;
 import com.example.bookaroom.R;
+
 import com.example.bookaroom.ViewBookingFragment;
-import com.example.bookaroom.TopFragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class ViewBookings extends MainActivity {
-    private AutoCompleteTextView autoCompleteTextView;
-    private AutoCompleteTextView autoCompleteTextView2;
-    private AutoCompleteTextView autoCompleteTextView3;
+public class ViewBookings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bookings);
-        String[] recreationalArr = getResources().getStringArray(R.array.recreational);
-        String[] libraryArr = getResources().getStringArray(R.array.library);
-        String[] downtownArr = getResources().getStringArray(R.array.downtown);
 
         SectionsPageAdapter pageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.viewPager);
