@@ -1,6 +1,5 @@
 <resources>
     <!-- Base application theme. -->
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,31 +7,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<!--    <style name="diagonalStyle">-->
-<!--        <item name="android:background">@drawable/diagonal_line</item>-->
-<!--    </style>-->
 
-<!--    <style name="AppTheme.ExposedDropdownMenu"-->
-<!--        parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">-->
-<!--        <item name="boxBackgroundColor">@color/transparent</item>-->
-<!--        <item name="boxStrokeColor">@color/white</item>-->
-<!--        <item name="boxStrokeErrorColor">@color/red</item>-->
-<!--        <item name="hintTextColor">@color/white</item>-->
-<!--        <item name="errorEnabled">true</item>-->
-<!--        <item name="materialThemeOverlay">@style/AppTheme.ExposedDropdownMenu.MaterialThemeOverlay</item>-->
-<!--    </style>-->
+    <style name="diagonalStyle">
+        <item name="android:background">@drawable/diagonal_line</item>
+    </style>
 
-<!--    <style name="AppTheme.ExposedDropdownMenu.MaterialThemeOverlay"-->
-<!--        parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--        <item name="colorSurface">@color/BCIT</item>-->
-<!--        <item name="autoCompleteTextViewStyle">@style/AppTheme.ExposedDropdownMenu.AutoCompleteStyle</item>-->
-<!--    </style>-->
+    <style name="AppTheme.ExposedDropdownMenu"
+        parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@color/transparent</item>
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="errorEnabled">true</item>
+        <item name="materialThemeOverlay">@style/AppTheme.ExposedDropdownMenu.MaterialThemeOverlay</item>
+    </style>
 
-<!--    <style name="AppTheme.ExposedDropdownMenu.AutoCompleteStyle">-->
-<!--        <item name="android:padding">16dp</item>-->
-<!--        <item name="android:textColor">@color/white</item>-->
-<!--        <item name="android:textSize">20sp</item>-->
-<!--    </style>-->
+    <style name="AppTheme.ExposedDropdownMenu.MaterialThemeOverlay"
+        parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorSurface">@color/BCIT</item>
+        <item name="autoCompleteTextViewStyle">@style/AppTheme.ExposedDropdownMenu.AutoCompleteStyle</item>
+    </style>
+
+    <style name="AppTheme.ExposedDropdownMenu.AutoCompleteStyle">
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 
     <style name="MaterialSpinnerItem"
         parent="Widget.AppCompat.TextView">
@@ -43,12 +43,12 @@
         <item name="android:maxLines">1</item>
     </style>
 
-<!--    <style name="AppTheme.TabLayout" parent="Widget.MaterialComponents.TabLayout">-->
-<!--        <item name="android:background">@color/BCIT</item>-->
-<!--        <item name="tabIndicatorColor">@color/white</item>-->
-<!--    </style>-->
+    <style name="AppTheme.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/BCIT</item>
+        <item name="tabIndicatorColor">@color/white</item>
+    </style>
 
-<!--    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light">-->
-<!--        <item name="tabStyle">@style/AppTheme.TabLayout</item>-->
-<!--    </style>-->
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light">
+        <item name="tabStyle">@style/AppTheme.TabLayout</item>
+    </style>
 </resources>

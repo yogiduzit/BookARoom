@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
-//import com.example.bookaroom.ui.ChooseBooking;
+import com.example.bookaroom.ui.ChooseBooking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,9 +55,10 @@ public class ViewBookingFragment extends Fragment {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(), ChooseBooking.class);
                 startActivity(intent);
             }
         });
     }
 }
+
