@@ -17,6 +17,7 @@
         <activity android:name=".ui.ChooseBooking"/>
         <activity android:name=".ui.DeleteBookingActivity"></activity>
         <activity android:name=".ui.MyBookingsActivity"/>
+        <activity android:name=".ui.ViewBookings"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bookaroom.ui.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,7 +31,6 @@ public class MyProfileFragment extends Fragment {
     TextView name, email, id;
     Button signOutButton;
     Button viewBookingButton;
-    MainActivity act;
 
     GoogleSignInClient mGoogleSignInClient;
 
