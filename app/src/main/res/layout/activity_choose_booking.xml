@@ -32,6 +32,19 @@
             app:layout_constraintTop_toBottomOf="@id/navigation_bar"
             />
 
+        <TextView
+            android:id="@+id/bookable_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"
+            />
+
         <com.evrencoskun.tableview.TableView
             android:id="@+id/bookings_table_view"
             android:layout_width="match_parent"
@@ -39,7 +52,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"/>
+            app:layout_constraintTop_toBottomOf="@id/bookable_name"/>
 
         <Button
             android:id="@+id/book_button"

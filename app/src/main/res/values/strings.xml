@@ -22,8 +22,6 @@
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
 
-    <!-- Booking Details Form -->
-
 
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
     <string name="email">Email:</string>
@@ -31,6 +29,7 @@
     <string name="id">ID:</string>
     <string name="signOut">Sign out</string>
     <!-- TODO: Remove or change this placeholder text -->
+
 
 
     <string name="recreational" translatable="false">Recreational</string>
@@ -66,7 +65,6 @@
     <string name="cancel_button">Cancel</string>
     <string name="delete">Delete</string>
     <string name="description">A description</string>
-
 
     <!-- Choose Bookings -->
     <string name="room_id">Room ID</string>
