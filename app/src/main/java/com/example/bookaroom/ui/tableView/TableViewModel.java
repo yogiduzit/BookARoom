@@ -1,11 +1,13 @@
 package com.example.bookaroom.ui.tableView;
 
 import com.example.bookaroom.AdminPanel;
+import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.helpers.DateHelper;
 import com.example.bookaroom.ui.tableView.model.Cell;
 import com.example.bookaroom.ui.tableView.model.ColumnHeader;
 import com.example.bookaroom.ui.tableView.model.RowHeader;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +19,18 @@ public class TableViewModel {
 
     private List<String> bookingIntervals;
 
-    public TableViewModel() {
-        bookingIntervals =  DateHelper.getBookingIntervals(AdminPanel.DAY_START_TIME, AdminPanel.DAY_END_TIME);
+    public TableViewModel(List<Bookable> bookables) {
+        bookingIntervals =  DateHelper.getBookingIntervals(LocalDateTime.now().getHour(), AdminPanel.DAY_END_TIME);
         rowHeaderList = this.createRowHeaderList();
-        columnHeaderList = this.createColumnHeaderList(10);
+        columnHeaderList = this.createColumnHeaderList(bookables);
         cellList = this.createCellList();
     }
 
-    private List<ColumnHeader> createColumnHeaderList(int size) {
+    private List<ColumnHeader> createColumnHeaderList(List<Bookable> bookables) {
         List<ColumnHeader> list = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
+        for (Bookable bookable: bookables) {
             // In this example, Row headers just shows the index of the TableView List.
-            list.add(new ColumnHeader("Room " + String.valueOf(i + 1)));
+            list.add(new ColumnHeader(bookable.getId()));
         }
         return list;
     }
