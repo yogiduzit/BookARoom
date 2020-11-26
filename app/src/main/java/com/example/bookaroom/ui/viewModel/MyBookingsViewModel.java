@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MyBookingsViewModel extends ViewModel {
     private static final String TAG = MyBookingsViewModel.class.getSimpleName();
-
+    public String userID;
     private MutableLiveData<List<Booking>> bookings;
     private List<Booking> temp;
     private BookingManager manager;
@@ -26,14 +26,32 @@ public class MyBookingsViewModel extends ViewModel {
         manager = new BookingManager();
     }
 
-    public MutableLiveData<List<Booking>> getBookings() {
+    public MutableLiveData<List<Booking>> getBookings(String userID) {
         if (bookings == null) {
             bookings = new MutableLiveData<>();
-            loadBookings();
+            loadBookings(userID);
         }
         return bookings;
     }
 
-    public void loadBookings() {
+    public void loadBookings(String userID) {
+        temp.clear();
+        manager.getBookings(userID).addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.d(TAG, "Error getting documents: ", task.getException());
+                return;
+            }
+            for (QueryDocumentSnapshot bookingSnapshot : task.getResult()) {
+                temp.add(new Booking(bookingSnapshot.getId(),
+                        (String) bookingSnapshot.get("userID"),
+                        (String) bookingSnapshot.get("roomID"),
+                        (String) bookingSnapshot.get("date"),
+                        (String) bookingSnapshot.get("start"),
+                        (String) bookingSnapshot.get("end"),
+                        (String) bookingSnapshot.get("userName"))
+                );
+            }
+            bookings.setValue(temp);
+        });
     }
 }
