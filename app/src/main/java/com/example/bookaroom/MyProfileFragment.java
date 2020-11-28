@@ -32,7 +32,7 @@ public class MyProfileFragment extends Fragment {
 
     ImageView imageView;
     TextView name, email, covidInformation, studentInformation, staffInformation;
-    Button signOutButton;
+    Button signOutButton, adminPanelButton;
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -87,6 +87,14 @@ public class MyProfileFragment extends Fragment {
                 }
             }
 
+        });
+        adminPanelButton = rootView.findViewById(R.id.adminPanelButton);
+        adminPanelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AdminPanelActivity.class);
+                startActivity(i);
+            }
         });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());

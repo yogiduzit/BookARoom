@@ -63,17 +63,41 @@
         app:layout_constraintStart_toEndOf="@id/emailCommand"
         app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingLeft="4.0dip"
+        android:paddingTop="5.0dip"
+        android:paddingRight="4.0dip"
+        android:paddingBottom="1.0dip"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        app:layout_constraintEnd_toEndOf="parent">
+
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signOut"
         android:layout_marginTop="30sp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corners_blue"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_weight="1.0"/>
+
+    <Button
+        android:id="@+id/adminPanelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adminPanel"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/rounded_corners_blue"
+        android:textColor="@color/white"
+        android:layout_weight="1.0"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/link_header"
