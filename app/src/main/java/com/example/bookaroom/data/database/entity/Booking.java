@@ -1,32 +1,38 @@
 package com.example.bookaroom.data.database.entity;
 
-import java.sql.Time;
-
 public class Booking {
-    public String id;
+    public String userId;
     public String roomId;
     public String startTime;
     public String endTime;
     public String date;
     public String userName;
+    public String id;
+    public String buildingId;
 
     public Booking(){};
 
-    public Booking(String id, String roomID, String startTime, String endTime, String date, String userName) {
+    public Booking(String id, String userID, String roomID, String startTime, String endTime, String date, String userName, String buildingId) {
         this.id = id;
+        this.userId = userID; //user id from google login
         this.roomId = roomID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.date = date;
         this.userName = userName;
+        this.buildingId = buildingId;
     }
 
-    public String getId() {
-        return id;
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserId(String userID) {
+        this.userId = userID;
     }
 
     public String getRoomId() {

@@ -25,6 +25,7 @@
         android:textSize="20sp"
         android:text="@string/name"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nameInput"
         app:layout_constraintTop_toBottomOf="@+id/googleLogo" />
 
     <EditText
@@ -37,6 +38,7 @@
         android:layout_marginTop="10sp"
         android:text=""
         app:layout_constraintStart_toEndOf="@id/nameCommand"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleLogo" />
 
     <TextView
@@ -48,6 +50,7 @@
         android:textSize="20sp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/emailInput"
         app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
 
     <EditText
@@ -60,6 +63,7 @@
         android:layout_marginTop="20sp"
         android:text=""
         app:layout_constraintStart_toEndOf="@id/emailCommand"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
 
     <TextView
@@ -71,6 +75,7 @@
         android:textSize="20sp"
         android:text="@string/id"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/idInput"
         app:layout_constraintTop_toBottomOf="@+id/emailCommand" />
 
     <EditText
@@ -83,6 +88,7 @@
         android:layout_marginTop="20sp"
         android:text=""
         app:layout_constraintStart_toEndOf="@id/idCommand"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailCommand" />
 
     <Button
@@ -90,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signOut"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corners_blue"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"

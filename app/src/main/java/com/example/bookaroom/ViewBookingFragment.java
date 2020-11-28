@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.bookaroom.data.database.entity.Building;
 import com.example.bookaroom.ui.adapter.CampusAdapter;
-import com.example.bookaroom.ui.viewModel.ViewBookingViewModel;
+import com.example.bookaroom.ui.viewModel.BuildingsViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class ViewBookingFragment extends Fragment {
 
         campusList = rootView.findViewById(R.id.campus_list);
 
-        ViewBookingViewModel viewModel = new ViewModelProvider(this).get(ViewBookingViewModel.class);
+        BuildingsViewModel viewModel = new ViewModelProvider(this).get(BuildingsViewModel.class);
         viewModel.getBuildings().observe(getViewLifecycleOwner(), buildingsMap -> {
             setupRecyclerView(campusList, buildingsMap);
         });

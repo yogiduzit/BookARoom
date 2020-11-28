@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class ViewBookingViewModel extends ViewModel {
-    private static final String TAG = ViewModel.class.getSimpleName();
+public class BuildingsViewModel extends ViewModel {
+    private static final String TAG = BuildingsViewModel.class.getSimpleName();
 
     private MutableLiveData<HashMap<String, ArrayList<Building>>> buildingsMap;
     private HashMap<String, ArrayList<Building>> temp;
@@ -26,7 +26,7 @@ public class ViewBookingViewModel extends ViewModel {
     private CampusManager campusManager;
     private BuildingManager buildingManager;
 
-    public ViewBookingViewModel() {
+    public BuildingsViewModel() {
         campusManager = new CampusManager();
         buildingManager = new BuildingManager();
         temp = new HashMap<>();

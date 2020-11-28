@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="@id/background_view"
         app:layout_constraintTop_toTopOf="@id/background_view" />
 
-    <EditText
+    <TextView
         android:id="@+id/room_no_input"
         android:layout_width="0dp"
         android:layout_height="40dp"
@@ -53,6 +53,7 @@
         android:layout_marginTop="20dp"
         android:autofillHints="roomNumber_service"
         android:background="@drawable/rounded_corners_normal"
+        android:gravity="center_vertical"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/room_no_label"
@@ -176,24 +177,11 @@
         android:id="@+id/book_button"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners_blue"
         android:text="@string/book"
         android:textColor="@color/white"
-        android:onClick="onBookingConfirmed"
         app:layout_constraintTop_toBottomOf="@id/terms_and_conditions"
-        app:layout_constraintBottom_toTopOf="@id/back_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_corners_blue"
-        android:text="@string/back"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/book_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

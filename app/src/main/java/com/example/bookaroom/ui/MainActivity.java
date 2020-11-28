@@ -18,7 +18,6 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.example.bookaroom.R;
 
-import com.example.bookaroom.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -119,17 +118,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view the clicked element
      */
     public void onGoForwardClick(View view) {
-        openURL(view.getId());
+        openURL(GO_FORWARD_URL);
     }
-
-    /**
-     * Populates the links map with the key-value pairs
-     * containing the view id and links to be used on main page.
-     */
-//    private void setupLinks() {
-//        linksMap.put(R.id.mainBtn, MainActivity.BCIT_URL);
-//        linksMap.put(R.id.go_forward_link, MainActivity.GO_FORWARD_URL);
-//    }
 
     /**
      * Sets the button title for the main button depending
@@ -153,9 +143,8 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param urlId the url to be opened
      */
-    private void openURL(Integer urlId) {
-        String url = linksMap.get(urlId);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+    private void openURL(String urlId) {
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(urlId));
         startActivity(launchBrowser);
     }
 

@@ -68,7 +68,9 @@ public class MyProfileFragment extends Fragment {
             name.setText(personName);
             email.setText(personEmail);
             id.setText(personId);
-            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
+            if (personPhoto != null) {
+                Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
+            }
         }
         return rootView;
     }
@@ -76,13 +78,10 @@ public class MyProfileFragment extends Fragment {
     private void signOut() {
 
         mGoogleSignInClient.signOut()
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getContext(), "Signed out successfully!", Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(getActivity(), MainActivity.class);
-                        startActivity(i);
-                    }
+                .addOnCompleteListener(getActivity(), task -> {
+                    Toast.makeText(getContext(), "Signed out successfully!", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    startActivity(i);
                 });
     }
 }

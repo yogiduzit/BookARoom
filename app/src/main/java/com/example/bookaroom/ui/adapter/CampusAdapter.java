@@ -85,7 +85,7 @@ public class CampusAdapter extends RecyclerView.Adapter<CampusAdapter.ViewHolder
             Building building = buildings.get(position);
             Intent intent = new Intent(view.getContext(), ChooseBooking.class);
 
-            String buildingName = building.getName() != null ? building.getName() : building.getId();
+            String buildingName = building.getId() != null ? building.getId() : building.getName();
             intent.putExtra(CAMPUS_NAME, building.getCampus());
             intent.putExtra(BUILDING_NAME, buildingName);
             view.getContext().startActivity(intent);
