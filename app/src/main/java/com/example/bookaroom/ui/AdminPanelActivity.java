@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.bookaroom.AdminPanel;
+import com.example.bookaroom.R;
 
 public class AdminPanelActivity extends AppCompatActivity {
 
