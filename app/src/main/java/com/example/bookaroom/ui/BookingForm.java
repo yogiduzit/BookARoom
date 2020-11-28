@@ -57,7 +57,11 @@ public class BookingForm extends AppCompatActivity {
                 return;
             }
             if(!validate(ids)){
-                addBooking();
+                try {
+                    addBooking();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(BookingForm.this, BookingConfirmation.class);
                 startActivity(intent);
             } else {
@@ -108,7 +112,7 @@ public class BookingForm extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addBooking(){
+    private void addBooking() throws Exception {
         String roomID = roomNum.getText().toString().trim();
         String start = startTime.getText().toString().trim();
         String end = endTime.getText().toString().trim();
