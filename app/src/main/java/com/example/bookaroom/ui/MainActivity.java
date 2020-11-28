@@ -130,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
      * Populates the links map with the key-value pairs
      * containing the view id and links to be used on main page.
      */
-//    private void setupLinks() {
-//        linksMap.put(R.id.mainBtn, MainActivity.BCIT_URL);
-//        linksMap.put(R.id.go_forward_link, MainActivity.GO_FORWARD_URL);
-//    }
+    private void setupLinks() {
+        linksMap.put(R.id.mainBtn, MainActivity.BCIT_URL);
+        linksMap.put(R.id.go_forward_link, MainActivity.GO_FORWARD_URL);
+    }
 
     /**
      * Sets the button title for the main button depending
