@@ -30,7 +30,7 @@ public class MyProfileFragment extends Fragment {
 
     ImageView imageView;
     TextView name, email, covidInformation, studentInformation, staffInformation;
-    Button signOutButton;
+    Button signOutButton, adminPanelButton;
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -54,37 +54,26 @@ public class MyProfileFragment extends Fragment {
         email = rootView.findViewById(R.id.emailInput);
         setupLinks();
         covidInformation = rootView.findViewById(R.id.go_covid_information);
-        covidInformation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openURL(v.getId());
-            }
-        });
+        covidInformation.setOnClickListener(v -> openURL(v.getId()));
         studentInformation = rootView.findViewById(R.id.information_for_student);
-        studentInformation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openURL(v.getId());
-            }
-        });
+        studentInformation.setOnClickListener(v -> openURL(v.getId()));
         staffInformation = rootView.findViewById(R.id.information_for_staff);
-        staffInformation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openURL(v.getId());
+        staffInformation.setOnClickListener(v -> openURL(v.getId()));
+        signOutButton = rootView.findViewById(R.id.signOutButton);
+        signOutButton.setOnClickListener(view -> {
+            switch (view.getId()) {
+                case R.id.signOutButton:
+                    signOut();
+                    break;
             }
         });
-        signOutButton = rootView.findViewById(R.id.signOutButton);
-        signOutButton.setOnClickListener(new View.OnClickListener() {
+        adminPanelButton = rootView.findViewById(R.id.adminPanelButton);
+        adminPanelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.signOutButton:
-                        signOut();
-                        break;
-                }
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AdminPanelActivity.class);
+                startActivity(i);
             }
-
         });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());

@@ -15,6 +15,11 @@
     <string name="id">ID:</string>
     <string name="signOut">Sign out</string>
 
+    <string name="adminPanel">Admin Panel</string>
+    <string name="day_start_time">Day Start Time:</string>
+    <string name="day_end_time">Day End Time:</string>
+    <string name="base_booking_interval">Base Booking Interval:</string>
+
     <string name="recreational" translatable="false">Recreational</string>
     <string name="library" translatable="false">Library</string>
     <string name="downtown" translatable="false">Downtown</string>
@@ -62,4 +67,5 @@
     <string name="go_covid_information">Latest COVID-19 update</string>
     <string name="information_for_student">Information for Students</string>
     <string name="information_for_staff">Information for Faculty &amp; Staff</string>
+    <string name="submit">Submit</string>
 </resources>
