@@ -19,14 +19,17 @@ public class TableViewModel {
 
     private List<String> bookingIntervals;
 
+    private List<Bookable> bookables;
+
     public TableViewModel(List<Bookable> bookables) {
-        bookingIntervals =  DateHelper.getBookingIntervals(LocalDateTime.now().getHour(), AdminPanel.DAY_END_TIME);
+        bookingIntervals =  DateHelper.getBookingIntervals(AdminPanel.DAY_START_TIME, AdminPanel.DAY_END_TIME);
+        this.bookables = bookables;
         rowHeaderList = this.createRowHeaderList();
-        columnHeaderList = this.createColumnHeaderList(bookables);
+        columnHeaderList = this.createColumnHeaderList();
         cellList = this.createCellList();
     }
 
-    private List<ColumnHeader> createColumnHeaderList(List<Bookable> bookables) {
+    private List<ColumnHeader> createColumnHeaderList() {
         List<ColumnHeader> list = new ArrayList<>();
         for (Bookable bookable: bookables) {
             // In this example, Row headers just shows the index of the TableView List.
@@ -38,14 +41,12 @@ public class TableViewModel {
     private List<List<Cell>> createCellList() {
         List<List<Cell>> lists = new ArrayList<>();
 
-        // Creating cell model list from User list for Cell Items
-        // In this example, User list is populated from web service
-
         for (int i = 0; i < rowHeaderList.size(); i++) {
             List<Cell> list = new ArrayList<>();
+            String[] interval = rowHeaderList.get(i).getInterval().split("-");
 
             for (int j = 0; j < columnHeaderList.size(); j++) {
-                list.add(new Cell(i + "-" + j));
+                list.add(new Cell(interval[0], interval[1], columnHeaderList.get(j).getBookableName()));
             }
             // Add
             lists.add(list);

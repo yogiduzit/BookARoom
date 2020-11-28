@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MyBookingsViewModel extends ViewModel {
     private static final String TAG = MyBookingsViewModel.class.getSimpleName();
-    public String userID;
+
     private MutableLiveData<List<Booking>> bookings;
     private List<Booking> temp;
     private BookingManager manager;
@@ -43,12 +43,13 @@ public class MyBookingsViewModel extends ViewModel {
             }
             for (QueryDocumentSnapshot bookingSnapshot : task.getResult()) {
                 temp.add(new Booking(bookingSnapshot.getId(),
-                        (String) bookingSnapshot.get("userID"),
-                        (String) bookingSnapshot.get("roomID"),
+                        (String) bookingSnapshot.get("userId"),
+                        (String) bookingSnapshot.get("roomId"),
+                        (String) bookingSnapshot.get("startTime"),
+                        (String) bookingSnapshot.get("endTime"),
                         (String) bookingSnapshot.get("date"),
-                        (String) bookingSnapshot.get("start"),
-                        (String) bookingSnapshot.get("end"),
-                        (String) bookingSnapshot.get("userName"))
+                        (String) bookingSnapshot.get("userName"),
+                        (String) bookingSnapshot.get("buildingId"))
                 );
             }
             bookings.setValue(temp);

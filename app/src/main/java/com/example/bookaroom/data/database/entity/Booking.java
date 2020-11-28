@@ -8,10 +8,11 @@ public class Booking {
     public String date;
     public String userName;
     public String id;
+    public String buildingId;
 
     public Booking(){};
 
-    public Booking(String id, String userID, String roomID, String startTime, String endTime, String date, String userName) {
+    public Booking(String id, String userID, String roomID, String startTime, String endTime, String date, String userName, String buildingId) {
         this.id = id;
         this.userId = userID; //user id from google login
         this.roomId = roomID;
@@ -19,6 +20,7 @@ public class Booking {
         this.endTime = endTime;
         this.date = date;
         this.userName = userName;
+        this.buildingId = buildingId;
     }
 
     public String getId() { return id; }

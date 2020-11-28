@@ -7,29 +7,32 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookaroom.R;
 
 import com.example.bookaroom.data.database.access.BookingManager;
 import com.example.bookaroom.data.database.entity.Booking;
+import com.example.bookaroom.helpers.DateHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class BookingForm extends AppCompatActivity {
-    EditText roomNum, startTime, endTime, etDate, etName;
+    TextView roomNum;
+    EditText startTime, endTime, etDate, etName;
     CheckBox checkBox;
     private final Calendar myCalendar = Calendar.getInstance();
     private final Calendar myClock = Calendar.getInstance();
@@ -37,8 +40,6 @@ public class BookingForm extends AppCompatActivity {
     DatePickerDialog datePicker;
     TimePickerDialog timePicker;
     Button bookBtn;
-    FirebaseFirestore db;
-    String id;
 
     private BookingManager bookingManager;
 
@@ -56,17 +57,17 @@ public class BookingForm extends AppCompatActivity {
         dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
         final int[] ids = new int[]{R.id.room_no_input, R.id.start_time_input, R.id.end_time_input, R.id.date_input, R.id.booking_name_input};
 
+        setupForm();
+
         bookingManager = new BookingManager();
 
         bookBtn.setOnClickListener(v -> {
-            if(!checkBox.isChecked()){
+            if (!checkBox.isChecked()) {
                 Toast.makeText(getApplicationContext(), "Please agree to terms and conditions.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(!validate(ids)){
+            if (!validate(ids)) {
                 addBooking();
-                Intent intent = new Intent(BookingForm.this, BookingConfirmation.class);
-                startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Enter missing values", Toast.LENGTH_SHORT).show();
             }
@@ -98,11 +99,22 @@ public class BookingForm extends AppCompatActivity {
         });
     }
 
-    public boolean validate(int[] ids){
+    void setupForm() {
+        String bookableName = getIntent().getStringExtra("bookable");
+        String start = getIntent().getStringExtra("startTime");
+        String end = getIntent().getStringExtra("endTime");
+
+        roomNum.setText(bookableName);
+        startTime.setText(start);
+        endTime.setText(end);
+        etDate.setText(DateHelper.getDate());
+    }
+
+    public boolean validate(int[] ids) {
         boolean isEmpty = false;
-        for(int id: ids){
-            EditText editText = findViewById(id);
-            if(TextUtils.isEmpty(editText.getText().toString())){
+        for (int id : ids) {
+            TextView editText = findViewById(id);
+            if (TextUtils.isEmpty(editText.getText().toString())) {
                 editText.setError("Enter a Value");
                 isEmpty = true;
             }
@@ -110,12 +122,20 @@ public class BookingForm extends AppCompatActivity {
         return isEmpty;
     }
 
-    public void onBookingConfirmed(View view){
-        Intent intent = new Intent(this, BookingConfirmation.class);
+    public void onBookingConfirmed() {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.confirmation_layout, null);
+        ((TextView) layout.findViewById(R.id.booking_confirmation)).setText(getString(R.string.booking_confirmed));
+        Toast toast = Toast.makeText(BookingForm.this, "Booking added", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 50);
+        toast.setView(layout);
+        toast.show();
+
+        Intent intent = new Intent(this, ViewBookings.class);
         startActivity(intent);
     }
 
-    private void addBooking(){
+    private void addBooking() {
         String roomID = roomNum.getText().toString().trim();
         String start = startTime.getText().toString().trim();
         String end = endTime.getText().toString().trim();
@@ -126,12 +146,12 @@ public class BookingForm extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         userID = account.getId();
         String id = userID + "-" + name + "-" + start + "-" + end;
-        Booking booking = new Booking(id, userID, roomID, start, end, date, name);
+        String buildingId = getIntent().getStringExtra("building");
+        Booking booking = new Booking(id, userID, roomID, start, end, date, name, buildingId);
 
         //query put in bookings manager function get my bookings
         //db.collection where date is = to today date
         bookingManager.addBooking(booking)
-                .addOnSuccessListener((OnSuccessListener) o -> Toast.makeText(BookingForm.this, "Booking added", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(BookingForm.this, "Booking wasn't added.", Toast.LENGTH_SHORT).show());
+                .addOnSuccessListener((OnSuccessListener) o -> onBookingConfirmed()).addOnFailureListener(e -> Toast.makeText(BookingForm.this, "Booking wasn't added.", Toast.LENGTH_SHORT).show());
     }
 }

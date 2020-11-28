@@ -14,6 +14,7 @@ import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.ui.adapter.CampusAdapter;
 import com.example.bookaroom.ui.tableView.TableViewAdapter;
+import com.example.bookaroom.ui.tableView.TableViewListener;
 import com.example.bookaroom.ui.tableView.TableViewModel;
 import com.example.bookaroom.ui.viewModel.BookablesViewModel;
 
@@ -62,7 +63,9 @@ public class ChooseBooking extends AppCompatActivity {
 
     private void initTableView(TableView tableView, List<Bookable> bookables) {
         TableViewAdapter adapter = new TableViewAdapter();
+        TableViewListener listener = new TableViewListener(buildingId);
         tableView.setAdapter(adapter);
+        tableView.setTableViewListener(listener);
         TableViewModel viewModel = new TableViewModel(bookables);
 
         adapter.setAllItems(viewModel.getColumnHeaderList(), viewModel.getRowHeaderList(), viewModel.getCellList());

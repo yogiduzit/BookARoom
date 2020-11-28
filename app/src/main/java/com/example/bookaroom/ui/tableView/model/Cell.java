@@ -1,18 +1,37 @@
 package com.example.bookaroom.ui.tableView.model;
 
-import androidx.annotation.NonNull;
-
-import com.evrencoskun.tableview.sort.ISortableModel;
-
 public class Cell {
-    private String data;
+    private String startTime;
+    private String endTime;
+    private String bookable;
 
-    public Cell(@NonNull String oData) {
-        this.data = oData;
+    public Cell(String startTime, String endTime, String bookable) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.bookable = bookable;
     }
 
-    @NonNull
-    public String getData() {
-        return data;
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public String getBookable() {
+        return bookable;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setBookable(String bookable) {
+        this.bookable = bookable;
     }
 }
