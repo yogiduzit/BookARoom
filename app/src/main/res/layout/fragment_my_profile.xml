@@ -57,7 +57,7 @@
         android:id="@+id/emailInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="20"
+        android:ems="10"
         android:layout_marginStart="24dp"
         android:textSize="20sp"
         android:layout_marginTop="30sp"
@@ -66,18 +66,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:paddingLeft="4.0dip"
-        android:paddingTop="5.0dip"
-        android:paddingRight="4.0dip"
-        android:paddingBottom="1.0dip"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="65dp"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput"
-        app:layout_constraintEnd_toEndOf="parent">
 
     <Button
         android:id="@+id/signOutButton"
@@ -88,7 +76,10 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corners_blue"
         android:textColor="@color/white"
-        android:layout_weight="1.0"/>
+        android:layout_weight="1.0"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/adminPanelButton"/>
 
     <Button
         android:id="@+id/adminPanelButton"
@@ -98,9 +89,11 @@
         android:layout_marginTop="30sp"
         android:background="@drawable/rounded_corners_blue"
         android:textColor="@color/white"
-        android:layout_weight="1.0"/>
+        android:layout_weight="1.0"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:layout_constraintStart_toEndOf="@id/signOutButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
 
     <TextView
         android:id="@+id/link_header"
@@ -111,9 +104,11 @@
         android:textAlignment="center"
         android:textColor="@color/BCIT"
         android:textSize="27sp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/go_covid_information" />
+        app:layout_constraintTop_toBottomOf="@id/signOutButton"
+        app:layout_constraintBottom_toTopOf="@id/go_covid_information"/>
 
     <TextView
         android:id="@+id/go_covid_information"
@@ -126,7 +121,8 @@
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/information_for_student" />
+        app:layout_constraintTop_toBottomOf="@id/link_header"
+        app:layout_constraintBottom_toTopOf="@id/information_for_student"/>
 
     <TextView
         android:id="@+id/information_for_student"
@@ -139,7 +135,8 @@
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/information_for_staff"/>
+        app:layout_constraintTop_toBottomOf="@id/go_covid_information"
+        app:layout_constraintBottom_toTopOf="@id/information_for_staff"/>
 
     <TextView
         android:id="@+id/information_for_staff"
@@ -153,6 +150,6 @@
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/information_for_student" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
