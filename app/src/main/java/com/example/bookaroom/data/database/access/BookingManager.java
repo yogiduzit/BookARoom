@@ -62,4 +62,10 @@ public class BookingManager {
                 .whereEqualTo("buildingId", buildingId)
                 .get();
     }
+
+    public Task<Void> deleteBooking(String id){
+        return db.collection(BOOKING_COLLECTION)
+                .document(id)
+                .delete();
+    }
 }

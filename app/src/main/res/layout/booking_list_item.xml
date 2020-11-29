@@ -3,21 +3,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginTop="3dp"
+    android:padding="3dp"
+    android:orientation="vertical"
+    android:background="@color/BCIT">
 
     <TextView
         android:id="@+id/booking_location"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:textSize="22sp"/>
 
     <TextView
         android:id="@+id/booking_start"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/booking_end"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="@string/booking_end"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginStart="3dp"
+        android:padding="4dp"
+        android:textSize="14sp"/>
 
 </LinearLayout>

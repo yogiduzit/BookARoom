@@ -133,15 +133,12 @@ public class BookingForm extends AppCompatActivity {
         String date = etDate.getText().toString().trim();
         String name = etName.getText().toString().trim();
         String userID;
-        //user id = google login id;
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         userID = account.getId();
         String id = userID + "-" + name + "-" + start + "-" + end;
         String buildingId = getIntent().getStringExtra("building");
         Booking booking = new Booking(id, userID, roomID, BookingHelper.parseTimeString(start), BookingHelper.parseTimeString(end), date, name, buildingId);
 
-        //query put in bookings manager function get my bookings
-        //db.collection where date is = to today date
         bookingManager.addBooking(booking)
                 .addOnSuccessListener((OnSuccessListener) o -> onBookingConfirmed())
                 .addOnFailureListener(e -> ToastHelper.showToast(getApplicationContext(), ToastHelper.Severity.ERROR, "Booking wasn't added.", Toast.LENGTH_SHORT));
