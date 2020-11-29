@@ -9,6 +9,17 @@
     android:theme="@style/Theme.MaterialComponents"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/mainMenuName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="@string/campuses"
+        android:textColor="@color/black"
+        android:textSize="27sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/campus_list"
         android:layout_width="match_parent"

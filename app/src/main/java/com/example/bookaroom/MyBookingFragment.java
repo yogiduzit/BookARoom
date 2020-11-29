@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.bookaroom.data.database.entity.Booking;
 import com.example.bookaroom.ui.adapter.MyBookingsAdapter;
@@ -30,6 +31,7 @@ public class MyBookingFragment extends Fragment {
         String userID = account.getId();
 
         RecyclerView myBookingsView = rootView.findViewById(R.id.my_bookings);
+        TextView noBookings =  rootView.findViewById(R.id.no_bookings);
 
         MyBookingsViewModel viewModel = new ViewModelProvider(this).get(MyBookingsViewModel.class);
         viewModel.getBookings(userID).observe(getViewLifecycleOwner(), bookings -> {
@@ -40,6 +42,14 @@ public class MyBookingFragment extends Fragment {
             myBookingsView.setAdapter(adapter);
             myBookingsView.setLayoutManager(layoutManager);
         });
+
+        if (this.bookings == null){
+            myBookingsView.setVisibility(View.GONE);
+            noBookings.setVisibility(View.VISIBLE);
+        } else{
+            myBookingsView.setVisibility(View.VISIBLE);
+            noBookings.setVisibility(View.GONE);
+        }
         return rootView;
     }
 }
