@@ -34,4 +34,10 @@ public class BookingManager {
                 .whereEqualTo("date", dateFormat.format(new Date()))
                 .get();
     }
+
+    public Task<Void> deleteBooking(String id){
+        return db.collection(BOOKING_COLLECTION)
+                .document(id)
+                .delete();
+    }
 }
