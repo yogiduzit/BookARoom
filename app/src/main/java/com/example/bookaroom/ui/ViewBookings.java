@@ -1,6 +1,7 @@
 package com.example.bookaroom.ui;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.bookaroom.MyBookingFragment;
 import com.example.bookaroom.MyProfileFragment;
 import com.example.bookaroom.R;
-
 import com.example.bookaroom.ViewBookingFragment;
 
 public class ViewBookings extends AppCompatActivity {
@@ -26,6 +26,7 @@ public class ViewBookings extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(pageAdapter);
     }
+
 
     public class SectionsPageAdapter extends FragmentPagerAdapter{
         public SectionsPageAdapter(FragmentManager fragmentManager){super(fragmentManager);}

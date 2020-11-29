@@ -7,9 +7,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,6 +17,7 @@ import com.example.bookaroom.R;
 
 import com.example.bookaroom.data.database.access.BookingManager;
 import com.example.bookaroom.data.database.entity.Booking;
+import com.example.bookaroom.helpers.BookingHelper;
 import com.example.bookaroom.helpers.DateHelper;
 import com.example.bookaroom.helpers.ToastHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,7 +26,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class BookingForm extends AppCompatActivity {
@@ -68,7 +65,7 @@ public class BookingForm extends AppCompatActivity {
                 return;
             }
             if (!validate(ids)) {
-                addBooking();
+                    addBooking();
             } else {
                 ToastHelper.showToast(getApplicationContext(), ToastHelper.Severity.ERROR, "Enter missing values", Toast.LENGTH_SHORT);
             }
@@ -136,16 +133,14 @@ public class BookingForm extends AppCompatActivity {
         String date = etDate.getText().toString().trim();
         String name = etName.getText().toString().trim();
         String userID;
-        //user id = google login id;
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         userID = account.getId();
         String id = userID + "-" + name + "-" + start + "-" + end;
         String buildingId = getIntent().getStringExtra("building");
-        Booking booking = new Booking(id, userID, roomID, start, end, date, name, buildingId);
+        Booking booking = new Booking(id, userID, roomID, BookingHelper.parseTimeString(start), BookingHelper.parseTimeString(end), date, name, buildingId);
 
-        //query put in bookings manager function get my bookings
-        //db.collection where date is = to today date
         bookingManager.addBooking(booking)
-                .addOnSuccessListener((OnSuccessListener) o -> onBookingConfirmed()).addOnFailureListener(e -> Toast.makeText(BookingForm.this, "Booking wasn't added.", Toast.LENGTH_SHORT).show());
+                .addOnSuccessListener((OnSuccessListener) o -> onBookingConfirmed())
+                .addOnFailureListener(e -> ToastHelper.showToast(getApplicationContext(), ToastHelper.Severity.ERROR, "Booking wasn't added.", Toast.LENGTH_SHORT));
     }
 }

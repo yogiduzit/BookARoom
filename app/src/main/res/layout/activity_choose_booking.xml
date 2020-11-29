@@ -42,18 +42,18 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/bookable_name"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
             android:id="@+id/bookable_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/BCIT"
             style="@style/Widget.MaterialComponents.Button.TextButton"
-            app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"
-            app:layout_constraintStart_toEndOf="@id/campus_name"
+            app:layout_constraintTop_toBottomOf="@id/campus_name"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.evrencoskun.tableview.TableView

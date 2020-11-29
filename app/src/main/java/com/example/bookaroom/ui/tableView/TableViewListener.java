@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.evrencoskun.tableview.listener.ITableViewListener;
+import com.example.bookaroom.AdminPanel;
 import com.example.bookaroom.R;
 import com.example.bookaroom.helpers.ToastHelper;
 import com.example.bookaroom.ui.BookingForm;
@@ -36,7 +37,7 @@ public class TableViewListener implements ITableViewListener {
         when they enter the booking form
          */
         if (cellView != null && cellView instanceof TableViewAdapter.CellViewHolder) {
-            if (((TableViewAdapter.CellViewHolder) cellView).getCell().isBooked()) {
+            if (((TableViewAdapter.CellViewHolder) cellView).getCell().getBookings() == AdminPanel.MAX_BOOKINGS_PER_ROOM) {
                 return;
             }
             Intent intent = new Intent(cellView.itemView.getContext(), BookingForm.class);
@@ -55,7 +56,24 @@ public class TableViewListener implements ITableViewListener {
 
     @Override
     public void onCellLongPressed(@NonNull RecyclerView.ViewHolder cellView, int column, int row) {
-        return;
+        if (cellView != null && cellView instanceof TableViewAdapter.CellViewHolder) {
+            Balloon.Builder builder = new Balloon.Builder(cellView.itemView.getContext())
+                    .setArrowSize(10)
+                    .setArrowOrientation(ArrowOrientation.BOTTOM)
+                    .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                    .setArrowPosition(0.5f)
+                    .setArrowVisible(true)
+                    .setCornerRadius(4f)
+                    .setAlpha(0.9f)
+                    .setPadding(2)
+                    .setBalloonAnimation(BalloonAnimation.FADE);
+            if (((TableViewAdapter.CellViewHolder) cellView).getCell().getBookings() == AdminPanel.MAX_BOOKINGS_PER_ROOM) {
+                builder.setText("This book is completely booked for this time interval");
+            } else {
+                builder.setText("Available bookings: " + (AdminPanel.MAX_BOOKINGS_PER_ROOM - ((TableViewAdapter.CellViewHolder) cellView).getCell().getBookings()));
+            }
+                builder.build().show(cellView.itemView);
+        }
     }
 
     @Override

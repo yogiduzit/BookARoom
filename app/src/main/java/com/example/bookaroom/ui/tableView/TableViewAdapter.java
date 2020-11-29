@@ -11,6 +11,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter;
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder;
+import com.example.bookaroom.AdminPanel;
 import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.ui.tableView.model.Cell;
@@ -90,6 +91,9 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
             return;
         }
         viewHolder.cellTextView.setBackgroundColor(ResourcesCompat.getColor(viewHolder.cellContainer.getResources(), cell.isBooked() ? R.color.BCIT : R.color.white, null));
+        if (cell.getBookings() > 0 && cell.getBookings() < AdminPanel.MAX_BOOKINGS_PER_ROOM) {
+            viewHolder.cellTextView.setAlpha(0.5f);
+        }
         viewHolder.setCell(cell);
 
         // If your TableView should have auto resize for cells & columns.

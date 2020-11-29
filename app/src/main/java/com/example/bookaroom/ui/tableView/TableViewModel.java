@@ -52,7 +52,9 @@ public class TableViewModel {
 
             for (int j = 0; j < columnHeaderList.size(); j++) {
                 String bookableName = columnHeaderList.get(j).getBookable().getId();
-                Cell cell = new Cell(interval[0], interval[1], bookableName, BookingHelper.isIntervalBooked(interval[0], interval[1], bookings.get(bookableName)));
+                int booked = BookingHelper.isIntervalBooked(interval[0], interval[1], bookings.get(bookableName));
+                Cell cell = new Cell(interval[0], interval[1], bookableName, booked != 0);
+                cell.setBookings(booked);
                 list.add(cell);
             }
             // Add

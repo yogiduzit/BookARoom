@@ -49,8 +49,8 @@ public class BookingsViewModel extends ViewModel {
                 temp.get(bookableId).add(new Booking(bookingSnapshot.getId(),
                         (String) bookingSnapshot.get("userId"),
                         (String) bookingSnapshot.get("roomId"),
-                        (String) bookingSnapshot.get("startTime"),
-                        (String) bookingSnapshot.get("endTime"),
+                        (Double) bookingSnapshot.get("startTime"),
+                        (Double) bookingSnapshot.get("endTime"),
                         (String) bookingSnapshot.get("date"),
                         (String) bookingSnapshot.get("userName"),
                         (String) bookingSnapshot.get("buildingId"))

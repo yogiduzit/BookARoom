@@ -11,22 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingHelper {
-    public static boolean isIntervalBooked(String startTime, String endTime, List<Booking> bookings) {
+    public static int isIntervalBooked(String startTime, String endTime, List<Booking> bookings) {
+        int booked = 0;
         if (bookings == null || bookings.isEmpty()) {
-            return false;
+            return 0;
         }
         double start = parseTimeString(startTime);
         double end = parseTimeString(endTime);
         for (Booking b: bookings) {
-            double bookingStart = parseTimeString(b.getStartTime());
-            double bookingEnd = parseTimeString(b.getEndTime());
+            double bookingStart = b.getStartTime();
+            double bookingEnd = b.getEndTime();
             if (end <= bookingStart || start >= bookingEnd) {
                 continue;
             } else {
-                return true;
+                ++booked;
             }
         }
-        return false;
+        return booked;
     }
 
     @NonNull
@@ -46,17 +47,17 @@ public class BookingHelper {
     }
 
     @NonNull
-    private static String stringifyTime(double time) {
+    public static String stringifyTime(double time) {
         int base = (int) time;
         return (time % 1 == 0) ? base + ":00" : base + ":30";
     }
 
-    private static double parseTimeString(String time) {
+    public static double parseTimeString(String time) {
         double base = Integer.valueOf(time.split(":")[0].trim());
         double fraction = Double.valueOf(time.split(":")[1].trim()) / 60;
         if (base > 23 || fraction > 59) {
             throw new IllegalArgumentException("Invalid hours or minutes");
         }
-        return base + (fraction / 100);
+        return base + fraction;
     }
 }

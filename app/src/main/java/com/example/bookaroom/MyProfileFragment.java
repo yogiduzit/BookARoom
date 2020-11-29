@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,23 +15,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
 import com.example.bookaroom.helpers.ToastHelper;
+
+import com.example.bookaroom.ui.AdminPanelActivity;
 import com.example.bookaroom.ui.MainActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MyProfileFragment extends Fragment {
 
     ImageView imageView;
-    TextView name, email, id;
-    Button signOutButton;
+    TextView name, email, covidInformation, studentInformation, staffInformation;
+    Button signOutButton, adminPanelButton;
 
     GoogleSignInClient mGoogleSignInClient;
+
+    private Map<Integer, String> linksMap = new HashMap();
+
+    public static final String COVID_INFORMATION_URL = "https://www.bcit.ca/covid-19/";
+    public static final String INFORMATION_FOR_STUDENT = "https://www.bcit.ca/covid-19/information-for-students/";
+    public static final String INFORMATION_FOR_STAFF = "https://www.bcit.ca/covid-19/information-for-faculty-staff/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,34 +56,48 @@ public class MyProfileFragment extends Fragment {
         imageView = rootView.findViewById(R.id.googleLogo);
         name = rootView.findViewById(R.id.nameInput);
         email = rootView.findViewById(R.id.emailInput);
-        id = rootView.findViewById(R.id.idInput);
+        setupLinks();
+        covidInformation = rootView.findViewById(R.id.go_covid_information);
+        covidInformation.setOnClickListener(v -> openURL(v.getId()));
+        studentInformation = rootView.findViewById(R.id.information_for_student);
+        studentInformation.setOnClickListener(v -> openURL(v.getId()));
+        staffInformation = rootView.findViewById(R.id.information_for_staff);
+        staffInformation.setOnClickListener(v -> openURL(v.getId()));
         signOutButton = rootView.findViewById(R.id.signOutButton);
-        signOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.signOutButton:
-                        signOut();
-                        break;
-                }
+        signOutButton.setOnClickListener(view -> {
+            switch (view.getId()) {
+                case R.id.signOutButton:
+                    signOut();
+                    break;
             }
-
+        });
+        adminPanelButton = rootView.findViewById(R.id.adminPanelButton);
+        adminPanelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AdminPanelActivity.class);
+                startActivity(i);
+            }
         });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
-            String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
             name.setText(personName);
             email.setText(personEmail);
-            id.setText(personId);
             if (personPhoto != null) {
                 Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
             }
         }
         return rootView;
+    }
+
+    private void setupLinks() {
+        linksMap.put(R.id.go_covid_information, MyProfileFragment.COVID_INFORMATION_URL);
+        linksMap.put(R.id.information_for_student, MyProfileFragment.INFORMATION_FOR_STUDENT);
+        linksMap.put(R.id.information_for_staff, MyProfileFragment.INFORMATION_FOR_STAFF);
     }
 
     private void signOut() {
@@ -84,5 +108,11 @@ public class MyProfileFragment extends Fragment {
                     Intent i = new Intent(getActivity(), MainActivity.class);
                     startActivity(i);
                 });
+    }
+
+    private void openURL(Integer urlId) {
+        String url = linksMap.get(urlId);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(launchBrowser);
     }
 }

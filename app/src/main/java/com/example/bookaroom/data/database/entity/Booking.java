@@ -3,8 +3,8 @@ package com.example.bookaroom.data.database.entity;
 public class Booking {
     private String userId;
     private String roomId;
-    private String startTime;
-    private String endTime;
+    private Double startTime;
+    private Double endTime;
     private String date;
     private String userName;
     private String id;
@@ -12,7 +12,7 @@ public class Booking {
 
     public Booking(){};
 
-    public Booking(String id, String userID, String roomID, String startTime, String endTime, String date, String userName, String buildingId) {
+    public Booking(String id, String userID, String roomID, Double startTime, Double endTime, String date, String userName, String buildingId) {
         this.id = id;
         this.userId = userID; //user id from google login
         this.roomId = roomID;
@@ -43,19 +43,19 @@ public class Booking {
         this.roomId = roomId;
     }
 
-    public String getStartTime() {
+    public Double getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Double startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Double getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Double endTime) {
         this.endTime = endTime;
     }
 
@@ -73,5 +73,13 @@ public class Booking {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
     }
 }
