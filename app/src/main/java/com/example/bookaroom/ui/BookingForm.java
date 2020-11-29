@@ -7,6 +7,8 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -23,13 +25,17 @@ import com.example.bookaroom.helpers.ToastHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.skydoves.balloon.ArrowConstraints;
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
+import com.skydoves.balloon.BalloonAnimation;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class BookingForm extends AppCompatActivity {
-    TextView roomNum;
+    TextView roomNum, termsConditions;
     EditText startTime, endTime, etDate, etName;
     CheckBox checkBox;
     private final Calendar myCalendar = Calendar.getInstance();
@@ -52,9 +58,10 @@ public class BookingForm extends AppCompatActivity {
         etName = findViewById(R.id.booking_name_input);
         bookBtn = findViewById(R.id.book_button);
         checkBox = findViewById(R.id.terms_and_conditions);
+        termsConditions = findViewById(R.id.terms_and_conditions_label);
         dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
         final int[] ids = new int[]{R.id.room_no_input, R.id.start_time_input, R.id.end_time_input, R.id.date_input, R.id.booking_name_input};
-
+        onHoverTermsAndConditions();
         setupForm();
 
         bookingManager = new BookingManager();
@@ -65,7 +72,7 @@ public class BookingForm extends AppCompatActivity {
                 return;
             }
             if (!validate(ids)) {
-                    addBooking();
+                addBooking();
             } else {
                 ToastHelper.showToast(getApplicationContext(), ToastHelper.Severity.ERROR, "Enter missing values", Toast.LENGTH_SHORT);
             }
@@ -142,5 +149,22 @@ public class BookingForm extends AppCompatActivity {
         bookingManager.addBooking(booking)
                 .addOnSuccessListener((OnSuccessListener) o -> onBookingConfirmed())
                 .addOnFailureListener(e -> ToastHelper.showToast(getApplicationContext(), ToastHelper.Severity.ERROR, "Booking wasn't added.", Toast.LENGTH_SHORT));
+    }
+
+    private void onHoverTermsAndConditions() {
+        termsConditions.setOnClickListener(v -> {
+            Balloon balloon = new Balloon.Builder(v.getContext())
+                    .setLayout(R.layout.layout_terms_conditions)
+                    .setArrowSize(10)
+                    .setArrowOrientation(ArrowOrientation.BOTTOM)
+                    .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                    .setArrowPosition(0.5f)
+                    .setArrowVisible(true)
+                    .setCornerRadius(4f)
+                    .setAlpha(0.9f)
+                    .setBalloonAnimation(BalloonAnimation.FADE)
+                    .build();
+            balloon.show(v);
+        });
     }
 }

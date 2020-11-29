@@ -37,7 +37,7 @@
     <string name="booking_end">End:</string>
     <string name="booking_date">Date:</string>
     <string name="booking_name">Name</string>
-    <string name="terms_and_conditions">I have read the terms and conditions</string>
+    <string name="terms_and_conditions">I have read the <u>terms and conditions</u></string>
     <string name="booking_confirmed">Your booking has been confirmed</string>
 
     <!-- My Bookings -->

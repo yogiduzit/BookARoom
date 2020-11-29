@@ -164,14 +164,26 @@
         android:id="@+id/terms_and_conditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/terms_and_conditions"
         android:layout_marginTop="20dp"
-        android:padding="20dp"
+        android:paddingVertical="20dp"
         android:textColor="@color/black"
         android:buttonTint="@color/BCIT"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@id/terms_and_conditions_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/booking_name_label"/>
+
+    <TextView
+        android:id="@+id/terms_and_conditions_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/terms_and_conditions"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/booking_name_label"
+        app:layout_constraintStart_toEndOf="@id/terms_and_conditions"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/book_button"
