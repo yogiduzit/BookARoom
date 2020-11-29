@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bookaroom.helpers.ToastHelper;
 import com.example.bookaroom.ui.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -79,7 +80,7 @@ public class MyProfileFragment extends Fragment {
 
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(getActivity(), task -> {
-                    Toast.makeText(getContext(), "Signed out successfully!", Toast.LENGTH_LONG).show();
+                    ToastHelper.showToast(getContext(), ToastHelper.Severity.SUCCESS, "Signed out successfully!", Toast.LENGTH_SHORT);
                     Intent i = new Intent(getActivity(), MainActivity.class);
                     startActivity(i);
                 });

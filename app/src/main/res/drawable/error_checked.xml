@@ -17,33 +17,32 @@
             </item>
 
             <item
-                android:width="8dp"
-                android:height="2dp"
-                android:top="20dp"
-                android:left="6dp">
-                <rotate
-                    android:fromDegrees="45">
-                    <shape android:shape="rectangle">
-                        <corners android:radius="1dp" />
-                        <solid android:color="@color/green"/>
-                    </shape>
+                android:width="2dp"
+                android:height="17dp"
+                android:top="7dp"
+                android:left="14dp">
+                <rotate android:fromDegrees="45"
+                    android:toDegrees="45">
+                <shape android:shape="rectangle">
+                    <corners android:radius="1dp"/>
+                    <solid android:color="@color/error"/>
+                </shape>
                 </rotate>
             </item>
 
             <item
-                android:width="19dp"
-                android:height="2dp"
-                android:top="16dp"
-                android:left="9dp">
-                <rotate
-                    android:fromDegrees="-45">
+                android:width="2dp"
+                android:height="17dp"
+                android:top="7dp"
+                android:left="14dp">
+                <rotate android:fromDegrees="-45"
+                    android:toDegrees="45">
                     <shape android:shape="rectangle">
-                        <corners android:radius="1dp" />
-                        <solid android:color="@color/green"/>
+                        <corners android:radius="1dp"/>
+                        <solid android:color="@color/error"/>
                     </shape>
                 </rotate>
             </item>
         </layer-list>
     </item>
-
 </selector>

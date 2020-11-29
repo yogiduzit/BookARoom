@@ -40,7 +40,10 @@ public class BookablesViewModel extends ViewModel {
                 return;
             }
             for (QueryDocumentSnapshot bookableSnapshot: task.getResult()) {
-                temp.add(new Bookable(bookableSnapshot.getId(), buildingId));
+                String[] features = new String[] {};
+                Long capacity = (Long) bookableSnapshot.get("capacity");
+                ArrayList<String> featureList = (ArrayList<String>) bookableSnapshot.get("features");
+                temp.add(new Bookable(bookableSnapshot.getId(), buildingId, capacity != null ? capacity.intValue(): 0, bookableSnapshot.getString("type"), featureList != null ? featureList.toArray(features) : features));
             }
             bookables.setValue(temp);
         });
