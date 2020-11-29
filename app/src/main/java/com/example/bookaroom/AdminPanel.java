@@ -7,4 +7,5 @@ public final class AdminPanel {
     public static int DAY_START_TIME = 6;
     public static int DAY_END_TIME = 20;
     public static double BASE_BOOKING_INTERVAL = 0.5;
+    public static int MAX_BOOKINGS_PER_ROOM = 10;
 }
