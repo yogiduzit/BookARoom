@@ -36,20 +36,19 @@ public class MyBookingFragment extends Fragment {
         MyBookingsViewModel viewModel = new ViewModelProvider(this).get(MyBookingsViewModel.class);
         viewModel.getBookings(userID).observe(getViewLifecycleOwner(), bookings -> {
             MyBookingsAdapter adapter = new MyBookingsAdapter(bookings);
-            this.bookings = bookings;
             GridLayoutManager layoutManager =  new GridLayoutManager(getActivity().getApplication(), 1);
             myBookingsView.addItemDecoration(new DividerItemDecoration(getContext(), GridLayoutManager.VERTICAL));
             myBookingsView.setAdapter(adapter);
             myBookingsView.setLayoutManager(layoutManager);
+            if (bookings.isEmpty()|| bookings == null){
+                myBookingsView.setVisibility(View.GONE);
+                noBookings.setVisibility(View.VISIBLE);
+            } else{
+                myBookingsView.setVisibility(View.VISIBLE);
+                noBookings.setVisibility(View.GONE);
+            }
         });
 
-        if (this.bookings == null){
-            myBookingsView.setVisibility(View.GONE);
-            noBookings.setVisibility(View.VISIBLE);
-        } else{
-            myBookingsView.setVisibility(View.VISIBLE);
-            noBookings.setVisibility(View.GONE);
-        }
         return rootView;
     }
 }
