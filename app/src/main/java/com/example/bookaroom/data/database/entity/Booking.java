@@ -1,14 +1,14 @@
 package com.example.bookaroom.data.database.entity;
 
 public class Booking {
-    public String userId;
-    public String roomId;
-    public String startTime;
-    public String endTime;
-    public String date;
-    public String userName;
-    public String id;
-    public String buildingId;
+    private String userId;
+    private String roomId;
+    private String startTime;
+    private String endTime;
+    private String date;
+    private String userName;
+    private String id;
+    private String buildingId;
 
     public Booking(){};
 

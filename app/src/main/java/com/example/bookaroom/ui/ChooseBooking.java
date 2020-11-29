@@ -12,12 +12,17 @@ import android.widget.TextView;
 import com.evrencoskun.tableview.TableView;
 import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Bookable;
+import com.example.bookaroom.data.database.entity.Booking;
 import com.example.bookaroom.ui.adapter.CampusAdapter;
 import com.example.bookaroom.ui.tableView.TableViewAdapter;
 import com.example.bookaroom.ui.tableView.TableViewListener;
 import com.example.bookaroom.ui.tableView.TableViewModel;
 import com.example.bookaroom.ui.viewModel.BookablesViewModel;
+import com.example.bookaroom.ui.viewModel.BookingsViewModel;
 
+import org.apache.commons.text.WordUtils;
+
+import java.util.HashMap;
 import java.util.List;
 
 public class ChooseBooking extends AppCompatActivity {
@@ -40,33 +45,33 @@ public class ChooseBooking extends AppCompatActivity {
         bookBtn = findViewById(R.id.book_button);
 
         BookablesViewModel bookablesViewModel = new ViewModelProvider(this).get(BookablesViewModel.class);
+        BookingsViewModel bookingsViewModel = new ViewModelProvider(this).get(BookingsViewModel.class);
         bookablesViewModel.getBookables(campusId, buildingId).observe(this, bookables -> {
             if (bookables.isEmpty()) {
                 bookingsTableView.setVisibility(View.GONE);
                 return;
             }
-            initTableView(bookingsTableView, bookables);
+            bookingsViewModel.getBookings(buildingId).observe(this, bookings -> {
+                initTableView(bookingsTableView, bookables, bookings);
+            });
         });
 
         setupHeadings(campusId, buildingId);
     }
 
-    public void onBookingSelected(View view) {
-        Intent bookingDetails = new Intent(this, BookingForm.class);
-        startActivity(bookingDetails);
-    }
-
     private void setupHeadings(String campus, String building) {
-        TextView bookableName = findViewById(R.id.bookable_name);
-        bookableName.setText(campus + " > " + building);
+        Button bookableName = findViewById(R.id.bookable_name);
+        Button campusName = findViewById(R.id.campus_name);
+        bookableName.setText("Building: " + WordUtils.capitalize(building));
+        campusName.setText("Campus: " + WordUtils.capitalize(campus));
     }
 
-    private void initTableView(TableView tableView, List<Bookable> bookables) {
+    private void initTableView(TableView tableView, List<Bookable> bookables, HashMap<String, List<Booking>> bookings) {
         TableViewAdapter adapter = new TableViewAdapter();
         TableViewListener listener = new TableViewListener(buildingId);
         tableView.setAdapter(adapter);
         tableView.setTableViewListener(listener);
-        TableViewModel viewModel = new TableViewModel(bookables);
+        TableViewModel viewModel = new TableViewModel(bookables, bookings);
 
         adapter.setAllItems(viewModel.getColumnHeaderList(), viewModel.getRowHeaderList(), viewModel.getCellList());
     }

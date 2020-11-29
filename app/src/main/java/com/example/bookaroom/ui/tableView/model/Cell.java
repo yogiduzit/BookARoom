@@ -4,11 +4,13 @@ public class Cell {
     private String startTime;
     private String endTime;
     private String bookable;
+    private boolean booked;
 
-    public Cell(String startTime, String endTime, String bookable) {
+    public Cell(String startTime, String endTime, String bookable, boolean booked) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.bookable = bookable;
+        this.booked = booked;
     }
 
     public String getStartTime() {
@@ -33,5 +35,13 @@ public class Cell {
 
     public void setBookable(String bookable) {
         this.bookable = bookable;
+    }
+
+    public boolean isBooked() {
+        return booked;
+    }
+
+    public void setBooked(boolean booked) {
+        this.booked = booked;
     }
 }
