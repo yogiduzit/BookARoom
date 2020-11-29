@@ -1,44 +1,73 @@
 <resources>
-    <string name="app_name">BookARoom</string>
-    <string name="main_menu_name">Main Menu</string>
-    <string name="basketball">Basketball</string>
-    <string name="badminton">Badminton</string>
-    <string name="gym">Gym</string>
-    <string-array name="recreational">
-        <item>Basketball</item>
-        <item>Badminton</item>
-        <item>Gym</item>
-    </string-array>
-    <string-array name="library">
-        <item>130D</item>
-        <item>130E</item>
-        <item>130F</item>
-        <item>130G</item>
-        <item>130H</item>
-        <item>130I</item>
-        <item>137</item>
-        <item>138</item>
-        <item>139</item>
-        <item>140</item>
-        <item>141</item>
-        <item>250A</item>
-        <item>250B</item>
-        <item>250C</item>
-    </string-array>
+    <string name="app_name" translatable="false">BookARoom</string>
+    <string name="main_menu_name" translatable="false">Main Menu</string>
 
-    <string-array name="downtown">
-        <item>576</item>
-        <item>582</item>
-        <item>583</item>
-        <item>586</item>
-        <item>587</item>
-        <item>666</item>
-        <item>667</item>
-        <item>668</item>
-    </string-array>
     <string name="BCIT_logo">Logo of BCIT</string>
+
     <string name="recreationActs">Recreation Activities</string>
     <string name="login">Login</string>
     <string name="view_bookings">View Bookings</string>
+
+
     <string name="go_forward_plan"><u>Before booking, please check BCIT COVID-19 Go Forward Plan</u></string>
+    <string name="email">Email:</string>
+    <string name="name">Name:</string>
+    <string name="id">ID:</string>
+    <string name="signOut">Sign out</string>
+
+    <string name="adminPanel">Admin Panel</string>
+    <string name="day_start_time">Day Start Time:</string>
+    <string name="day_end_time">Day End Time:</string>
+    <string name="base_booking_interval">Base Booking Interval:</string>
+
+    <string name="recreational" translatable="false">Recreational</string>
+    <string name="library" translatable="false">Library</string>
+    <string name="downtown" translatable="false">Downtown</string>
+
+    <string name="BCIT_navigation_bar">Navigation bar of BCIT</string>
+    <string name="booking_details">Booking details</string>
+
+    <string name="book">Book</string>
+    <string name="my_bookings">My Bookings</string>
+    <string name="back">Back</string>
+
+    <!-- Booking Details Form -->
+    <string name="booking_room_nu_service">Room No / Service:</string>
+    <string name="booking_start">Start:</string>
+    <string name="booking_end">End:</string>
+    <string name="booking_date">Date:</string>
+    <string name="booking_name">Name</string>
+    <string name="terms_and_conditions">I have read the <u>terms and conditions</u></string>
+    <string name="booking_confirmed">Your booking has been confirmed</string>
+
+    <!-- My Bookings -->
+    <string name="menu">Main Menu</string>
+    <string name="sample_room">Library</string>
+    <string name="sample_room_number">130B</string>
+    <string name="sample_start_time">12:30</string>
+    <string name="sample_end_time">13:30</string>
+    <string name="dash">-</string>
+    <string name="sample_name">XYZ</string>
+    <string name="continue_button">Continue</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="description">A description</string>
+    <string name="campuses">Campuses</string>
+    <string name="no_bookings">You have no bookings</string>
+
+    <!-- Choose Bookings -->
+    <string name="room_id">Room ID</string>
+    <string name="intervals">Intervals</string>
+    <string name="book_button">Book</string>
+    <string name="choose_bookings">Choose Bookings</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="link_header">Visit our websites:</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_label">Do you want to delete this booking?</string>
+    <string name="deleteBooking">Delete booking</string>
+    <string name="go_covid_information">Latest COVID-19 update</string>
+    <string name="information_for_student">Information for Students</string>
+    <string name="information_for_staff">Information for Faculty &amp; Staff</string>
+    <string name="submit">Submit</string>
 </resources>

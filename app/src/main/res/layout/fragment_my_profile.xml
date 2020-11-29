@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfileFragment">
+
+    <ImageView
+        android:id="@+id/googleLogo"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginTop="20sp"
+        app:srcCompat="@drawable/google_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameCommand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nameInput"
+        app:layout_constraintTop_toBottomOf="@+id/googleLogo" />
+
+    <TextView
+        android:id="@+id/nameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20sp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@id/nameCommand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/googleLogo" />
+
+    <TextView
+        android:id="@+id/emailCommand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/emailInput"
+        app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
+
+    <TextView
+        android:id="@+id/emailInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginStart="24dp"
+        android:textSize="20sp"
+        android:layout_marginTop="30sp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@id/emailCommand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameCommand" />
+
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signOut"
+        android:layout_marginTop="30sp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corners_blue"
+        android:textColor="@color/white"
+        android:layout_weight="1.0"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/adminPanelButton"/>
+
+    <Button
+        android:id="@+id/adminPanelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adminPanel"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/rounded_corners_blue"
+        android:textColor="@color/white"
+        android:layout_weight="1.0"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:layout_constraintStart_toEndOf="@id/signOutButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/link_header"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:text="@string/link_header"
+        android:textAlignment="center"
+        android:textColor="@color/BCIT"
+        android:textSize="27sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signOutButton"
+        app:layout_constraintBottom_toTopOf="@id/go_covid_information"/>
+
+    <TextView
+        android:id="@+id/go_covid_information"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/go_covid_information"
+        android:textAlignment="center"
+        android:textColor="@color/BCIT"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/link_header"
+        app:layout_constraintBottom_toTopOf="@id/information_for_student"/>
+
+    <TextView
+        android:id="@+id/information_for_student"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/information_for_student"
+        android:textAlignment="center"
+        android:textColor="@color/BCIT"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/go_covid_information"
+        app:layout_constraintBottom_toTopOf="@id/information_for_staff"/>
+
+    <TextView
+        android:id="@+id/information_for_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/information_for_staff"
+        android:textAlignment="center"
+        android:textColor="@color/BCIT"
+        android:layout_marginBottom="30dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/information_for_student" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
