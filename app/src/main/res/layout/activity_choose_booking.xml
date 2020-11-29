@@ -32,18 +32,29 @@
             app:layout_constraintTop_toBottomOf="@id/navigation_bar"
             />
 
-        <TextView
+        <Button
+            android:id="@+id/campus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/BCIT"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bookable_name"/>
+
+        <Button
             android:id="@+id/bookable_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/BCIT"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             app:layout_constraintTop_toBottomOf="@id/choose_bookings_heading"
-            />
+            app:layout_constraintStart_toEndOf="@id/campus_name"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.evrencoskun.tableview.TableView
             android:id="@+id/bookings_table_view"
@@ -53,22 +64,8 @@
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookable_name"
-            app:allow_click_inside_cell="true" />
-
-        <Button
-            android:id="@+id/book_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/book"
-            android:textSize="@dimen/text_size"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded_corners_blue"
-            app:layout_constraintTop_toBottomOf="@id/bookings_table_view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="onBookingSelected"/>
+            app:allow_click_inside_cell="true"
+            app:allow_click_inside_column_header="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

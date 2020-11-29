@@ -2,18 +2,20 @@ package com.example.bookaroom.ui.tableView.model;
 
 import androidx.annotation.NonNull;
 
+import com.example.bookaroom.data.database.entity.Bookable;
+
 public class ColumnHeader {
-    private String bookableName;
+    private Bookable bookable;
 
-    public ColumnHeader(@NonNull String bookableName) {
-        this.bookableName = bookableName;
+    public ColumnHeader(@NonNull Bookable bookable) {
+        this.bookable = bookable;
     }
 
-    public String getBookableName() {
-        return bookableName;
+    public Bookable getBookable() {
+        return bookable;
     }
 
-    public void setBookableName(String bookableName) {
-        this.bookableName = bookableName;
+    public void setBookable(Bookable bookable) {
+        this.bookable = bookable;
     }
 }

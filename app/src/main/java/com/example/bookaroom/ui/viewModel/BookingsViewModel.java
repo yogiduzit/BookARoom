@@ -5,44 +5,48 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.bookaroom.data.database.access.BookableManager;
 import com.example.bookaroom.data.database.access.BookingManager;
-import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.data.database.entity.Booking;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class MyBookingsViewModel extends ViewModel {
-    private static final String TAG = MyBookingsViewModel.class.getSimpleName();
+public class BookingsViewModel extends ViewModel {
 
-    private MutableLiveData<List<Booking>> bookings;
-    private List<Booking> temp;
-    private BookingManager manager;
+    private static final String TAG = BookingsViewModel.class.getSimpleName();
 
-    public MyBookingsViewModel() {
-        temp = new ArrayList<>();
-        manager = new BookingManager();
+    private MutableLiveData<HashMap<String, List<Booking>>> bookings;
+    private HashMap<String, List<Booking>> temp;
+
+    private final BookingManager manager = new BookingManager();
+
+    public BookingsViewModel() {
+        temp = new HashMap<>();
     }
 
-    public MutableLiveData<List<Booking>> getBookings(String userID) {
+    public MutableLiveData<HashMap<String, List<Booking>>> getBookings(String buildingId) {
         if (bookings == null) {
             bookings = new MutableLiveData<>();
-            loadBookings(userID);
+            loadBookings(buildingId);
         }
         return bookings;
     }
 
-    public void loadBookings(String userID) {
+    private void loadBookings(String buildingId) {
         temp.clear();
-        manager.getUserBookings(userID).addOnCompleteListener(task -> {
+        manager.getBookings(buildingId).addOnCompleteListener(task -> {
             if (!task.isSuccessful()) {
                 Log.d(TAG, "Error getting documents: ", task.getException());
                 return;
             }
-            for (QueryDocumentSnapshot bookingSnapshot : task.getResult()) {
-                temp.add(new Booking(bookingSnapshot.getId(),
+            for (QueryDocumentSnapshot bookingSnapshot: task.getResult()) {
+                String bookableId = bookingSnapshot.getString("roomId");
+                if (temp.get(bookableId) == null) {
+                    temp.put(bookableId, new ArrayList<>());
+                }
+                temp.get(bookableId).add(new Booking(bookingSnapshot.getId(),
                         (String) bookingSnapshot.get("userId"),
                         (String) bookingSnapshot.get("roomId"),
                         (String) bookingSnapshot.get("startTime"),
@@ -55,4 +59,6 @@ public class MyBookingsViewModel extends ViewModel {
             bookings.setValue(temp);
         });
     }
+
+
 }

@@ -7,10 +7,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter;
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder;
 import com.example.bookaroom.R;
+import com.example.bookaroom.data.database.entity.Bookable;
 import com.example.bookaroom.ui.tableView.model.Cell;
 import com.example.bookaroom.ui.tableView.model.ColumnHeader;
 import com.example.bookaroom.ui.tableView.model.RowHeader;
@@ -26,9 +28,7 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         final LinearLayout cellContainer;
         final TextView cellTextView;
 
-        String startTime;
-        String endTime;
-        String bookableName;
+        private Cell cell;
 
         public CellViewHolder(View itemView) {
             super(itemView);
@@ -36,28 +36,12 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
             cellTextView = itemView.findViewById(R.id.cell_data);
         }
 
-        public void setBookableName(String bookableName) {
-            this.bookableName = bookableName;
+        public Cell getCell() {
+            return cell;
         }
 
-        public String getStartTime() {
-            return startTime;
-        }
-
-        public void setStartTime(String startTime) {
-            this.startTime = startTime;
-        }
-
-        public String getEndTime() {
-            return endTime;
-        }
-
-        public void setEndTime(String endTime) {
-            this.endTime = endTime;
-        }
-
-        public String getBookableName() {
-            return bookableName;
+        public void setCell(Cell cell) {
+            this.cell = cell;
         }
     }
 
@@ -98,18 +82,15 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
     @Override
     public void onBindCellViewHolder(AbstractViewHolder holder, Cell cellItemModel, int
             columnPosition, int rowPosition) {
-        Cell cell = (Cell) cellItemModel;
+        Cell cell = cellItemModel;
 
         // Get the holder to update cell item text
         CellViewHolder viewHolder = (CellViewHolder) holder;
         if (viewHolder.cellTextView == null) {
             return;
         }
-        String cellContent = cell.getBookable();
-        viewHolder.cellTextView.setText(cellContent != null ? cellContent : "null");
-        viewHolder.setBookableName(cellContent);
-        viewHolder.setEndTime(cell.getEndTime());
-        viewHolder.setStartTime(cell.getStartTime());
+        viewHolder.cellTextView.setBackgroundColor(ResourcesCompat.getColor(viewHolder.cellContainer.getResources(), cell.isBooked() ? R.color.BCIT : R.color.white, null));
+        viewHolder.setCell(cell);
 
         // If your TableView should have auto resize for cells & columns.
         // Then you should consider the below lines. Otherwise, you can ignore them.
@@ -129,10 +110,20 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         final LinearLayout columnHeaderContainer;
         final TextView columnHeaderTextView;
 
+        private ColumnHeader columnHeader;
+
         public ColumnHeaderViewHolder(View itemView) {
             super(itemView);
             columnHeaderContainer = itemView.findViewById(R.id.column_header_container);
             columnHeaderTextView = itemView.findViewById(R.id.column_header_textView);
+        }
+
+        public ColumnHeader getColumnHeader() {
+            return columnHeader;
+        }
+
+        public void setColumnHeader(ColumnHeader columnHeader) {
+            this.columnHeader = columnHeader;
         }
     }
 
@@ -182,8 +173,9 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
         if (columnHeaderViewHolder.columnHeaderTextView == null) {
             return;
         }
-        String colContent = columnHeader.getBookableName();
+        String colContent = columnHeader.getBookable().getId();
         columnHeaderViewHolder.columnHeaderTextView.setText(colContent != null ? colContent : "null");
+        columnHeaderViewHolder.setColumnHeader(columnHeader);
 
         // If your TableView should have auto resize for cells & columns.
         // Then you should consider the below lines. Otherwise, you can ignore them.

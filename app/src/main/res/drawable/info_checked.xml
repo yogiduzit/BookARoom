@@ -18,25 +18,25 @@
 
             <item
                 android:width="2dp"
-                android:height="15dp"
-                android:top="5dp"
+                android:height="10dp"
+                android:top="13dp"
                 android:left="14dp">
-                    <shape android:shape="rectangle">
-                        <corners android:radius="1dp"/>
-                        <solid android:color="@color/warning"/>
-                    </shape>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1dp"/>
+                    <solid android:color="@color/grey"/>
+                </shape>
             </item>
 
             <item android:width="2dp"
                 android:height="2dp"
                 android:left="14dp"
-                android:top="23dp">
+                android:top="9dp">
                 <shape android:shape="oval">
                     <corners android:radius="1dp"/>
                     <gradient
-                        android:startColor="@color/warning"
-                        android:centerColor="@color/warning"
-                        android:endColor="@color/warning"
+                        android:startColor="@color/grey"
+                        android:centerColor="@color/grey"
+                        android:endColor="@color/grey"
                         android:angle="270" />
                 </shape>
             </item>
