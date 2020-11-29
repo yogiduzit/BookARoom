@@ -15,6 +15,8 @@ import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.access.BookingManager;
 import com.example.bookaroom.data.database.entity.Booking;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.ViewHolder>{
@@ -60,6 +62,8 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.Vi
                 showUpdateDialog(v.getContext(), position);
             }
         });
+
+
     }
 
     @Override

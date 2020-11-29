@@ -61,6 +61,8 @@
     <string name="cancel_button">Cancel</string>
     <string name="delete">Delete</string>
     <string name="description">A description</string>
+    <string name="campuses">Campuses</string>
+    <string name="no_bookings">You have no bookings</string>
 
     <!-- Choose Bookings -->
     <string name="room_id">Room ID</string>
