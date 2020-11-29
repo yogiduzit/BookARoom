@@ -17,6 +17,6 @@ public class DateHelper {
     public static String getDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
         int currHour = LocalDateTime.now().getHour();
-        return (currHour > AdminPanel.DAY_END_TIME ? dateFormat.format(new Date()) : dateFormat.format(Date.from(LocalDate.now().plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant())));
+        return (currHour > AdminPanel.DAY_END_TIME ? dateFormat.format(Date.from(LocalDate.now().plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant())) : dateFormat.format(new Date()));
     }
 }

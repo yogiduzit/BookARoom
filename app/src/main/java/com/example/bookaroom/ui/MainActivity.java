@@ -18,7 +18,6 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.example.bookaroom.R;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String BCIT_URL = "https://id.bcit.ca";
     public static final String GO_FORWARD_URL = "https://www.bcit.ca/covid-19/return-to-operations/";
-
     SignInButton signin;
     Button mainButton;
     int RC_SIGN_IN = 0;
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Authentication status of the user
      */
-    private boolean loggedIn = false;
+    private boolean loggedIn = true;
 
     /**
      * Stores the key value pairs containing the button id
@@ -46,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
 
 //         Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(GoogleSignInAccount account) {
         if (account != null) {
+
             loggedIn = true;
             mainButton.setVisibility(View.VISIBLE);
             signin.setVisibility(View.GONE);
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Handles the click action on main button
-     *
      * @param view the clicked element
      */
     public void onMainBtnClick(View view) {
@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Handles the click action on Go Forward link
-     *
      * @param view the clicked element
      */
     public void onGoForwardClick(View view) {
@@ -140,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Opens a provided URL in external browser
-     *
      * @param urlId the url to be opened
      */
     private void openURL(String urlId) {
@@ -167,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
             handleSignInResult(task);
         }
     }
-
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);

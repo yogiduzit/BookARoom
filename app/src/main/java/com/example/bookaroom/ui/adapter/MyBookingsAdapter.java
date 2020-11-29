@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Booking;
+import com.example.bookaroom.helpers.BookingHelper;
 
 import java.util.List;
 
@@ -47,8 +48,8 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.Vi
         TextView end = view.findViewById(R.id.booking_end);
         TextView location = view.findViewById(R.id.booking_location);
 
-        start.setText(booking.getStartTime());
-        end.setText(booking.getEndTime());
+        start.setText(BookingHelper.stringifyTime(booking.getStartTime()));
+        end.setText(BookingHelper.stringifyTime(booking.getEndTime()));
         location.setText(booking.getRoomId());
     }
 

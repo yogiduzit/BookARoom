@@ -12,7 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.bookaroom.MyBookingFragment;
 import com.example.bookaroom.MyProfileFragment;
 import com.example.bookaroom.R;
-
 import com.example.bookaroom.ViewBookingFragment;
 
 public class ViewBookings extends AppCompatActivity {
