@@ -109,12 +109,37 @@
         app:layout_constraintTop_toBottomOf="@id/day_end_label" />
 
     <TextView
+        android:id="@+id/max_booking_per_room_label"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/margin_booking_form"
+        android:gravity="center"
+        android:text="@string/base_booking_interval"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/day_start_label"
+        app:layout_constraintStart_toStartOf="@id/background_view"
+        app:layout_constraintTop_toBottomOf="@id/base_interval_input" />
+
+    <EditText
+        android:id="@+id/max_booking_per_room_input"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="@dimen/margin_booking_form"
+        android:autofillHints="endTime"
+        android:clickable="true"
+        android:background="@drawable/rounded_corners_normal"
+        app:layout_constraintEnd_toEndOf="@id/day_start_input"
+        app:layout_constraintStart_toStartOf="@id/day_start_input"
+        app:layout_constraintTop_toBottomOf="@id/base_interval_input" />
+
+    <TextView
         android:id="@+id/blank"
         android:layout_width="fill_parent"
         android:layout_height="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/base_interval_input" />
+        app:layout_constraintTop_toBottomOf="@+id/max_booking_per_room_input" />
 
     <Button
         android:id="@+id/submitButton"

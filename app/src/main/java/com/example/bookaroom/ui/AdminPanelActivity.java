@@ -19,7 +19,7 @@ public class AdminPanelActivity extends AppCompatActivity {
     public static final double BASE_BOOKING_INTERVAL = 0.5;
 
     Button submitBtn;
-    EditText dayStartTime, dayEndTime, baseBookingInterval;
+    EditText dayStartTime, dayEndTime, baseBookingInterval, maxBookingsPerRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,9 @@ public class AdminPanelActivity extends AppCompatActivity {
         dayStartTime = findViewById(R.id.day_start_input);
         dayEndTime = findViewById(R.id.day_end_input);
         baseBookingInterval = findViewById(R.id.base_interval_input);
+        maxBookingsPerRoom = findViewById(R.id.max_booking_per_room_input);
         submitBtn = findViewById(R.id.submitButton);
-        final int[] ids = new int[]{R.id.day_start_input, R.id.day_end_input, R.id.base_interval_input};
+        final int[] ids = new int[]{R.id.day_start_input, R.id.day_end_input, R.id.base_interval_input, R.id.max_booking_per_room_input};
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +39,7 @@ public class AdminPanelActivity extends AppCompatActivity {
                     AdminPanel.DAY_START_TIME = Integer.parseInt(dayStartTime.getText().toString().trim());
                     AdminPanel.DAY_END_TIME = Integer.parseInt(dayEndTime.getText().toString().trim());
                     AdminPanel.BASE_BOOKING_INTERVAL = Double.parseDouble(baseBookingInterval.getText().toString().trim());
+                    AdminPanel.MAX_BOOKINGS_PER_ROOM = Integer.parseInt(maxBookingsPerRoom.getText().toString().trim());
                     dayStartTime.setText("");
                     dayEndTime.setText("");
                     baseBookingInterval.setText("");
