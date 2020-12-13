@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookaroom.MyBookingFragment;
 import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.access.BookingManager;
 import com.example.bookaroom.data.database.entity.Booking;

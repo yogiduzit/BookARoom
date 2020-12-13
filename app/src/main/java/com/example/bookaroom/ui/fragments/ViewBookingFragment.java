@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui.fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Building;
 import com.example.bookaroom.ui.adapter.CampusAdapter;
 import com.example.bookaroom.ui.viewModel.BuildingsViewModel;

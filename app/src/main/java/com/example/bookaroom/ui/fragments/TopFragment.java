@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui.fragments;
 
 import android.os.Bundle;
 

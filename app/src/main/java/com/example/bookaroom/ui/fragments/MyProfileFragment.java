@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import com.example.bookaroom.R;
 import com.example.bookaroom.helpers.ToastHelper;
 
 import com.example.bookaroom.ui.AdminPanelActivity;
@@ -72,12 +73,9 @@ public class MyProfileFragment extends Fragment {
             }
         });
         adminPanelButton = rootView.findViewById(R.id.adminPanelButton);
-        adminPanelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AdminPanelActivity.class);
-                startActivity(i);
-            }
+        adminPanelButton.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), AdminPanelActivity.class);
+            startActivity(i);
         });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
