@@ -2,10 +2,10 @@
 An app that allows students to book rooms / recreational services
 across BCIT campuses.
 
-[Home page](screenshots/main.png)
-[Select campus](screenshots/select-campus.png)
-[Choose room](screenshots/choose-room.png)
-[Create booking](screenshots/create-booking.png)
+<img src="screenshots/main.png" alt="Home page" width="300"/>
+<img src="screenshots/select-campus.png" alt="Select campus" width="300"/>
+<img src="screenshots/choose-room.png" alt="Choose room" width="300"/>
+<img src="screenshots/create-booking.png" alt="Create booking" width="300"/>
 
 ## Collaborators
 Ethan Lee\
