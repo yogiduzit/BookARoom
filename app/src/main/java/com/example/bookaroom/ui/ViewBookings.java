@@ -1,7 +1,6 @@
 package com.example.bookaroom.ui;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import com.example.bookaroom.MyBookingFragment;
-import com.example.bookaroom.MyProfileFragment;
+import com.example.bookaroom.ui.fragments.MyBookingFragment;
+import com.example.bookaroom.ui.fragments.MyProfileFragment;
 import com.example.bookaroom.R;
-import com.example.bookaroom.ViewBookingFragment;
+import com.example.bookaroom.ui.fragments.ViewBookingFragment;
 
 public class ViewBookings extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.bookaroom;
+package com.example.bookaroom.ui.fragments;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.bookaroom.R;
 import com.example.bookaroom.data.database.entity.Booking;
 import com.example.bookaroom.ui.adapter.MyBookingsAdapter;
 import com.example.bookaroom.ui.viewModel.MyBookingsViewModel;
@@ -22,7 +23,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import java.util.List;
 
 public class MyBookingFragment extends Fragment {
-    private List<Booking> bookings;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_my_booking, container, false);
